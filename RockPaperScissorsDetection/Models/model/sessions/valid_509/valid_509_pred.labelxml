@@ -4,22 +4,22 @@
 		<Path>valid_509.jpg</Path>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.9466</Confidence>
+			<Confidence>0.9298</Confidence>
 			<Bndbox>
-				<X>0.67734375</X>
-				<Y>0.34375</Y>
-				<Width>0.3765625</Width>
-				<Height>0.296875</Height>
+				<X>0.67890625</X>
+				<Y>0.34453125</Y>
+				<Width>0.3796875</Width>
+				<Height>0.2984375</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.9356</Confidence>
+			<Confidence>0.8948</Confidence>
 			<Bndbox>
-				<X>0.2203125</X>
-				<Y>0.38125</Y>
-				<Width>0.234375</Width>
-				<Height>0.303125</Height>
+				<X>0.22265625</X>
+				<Y>0.3859375</Y>
+				<Width>0.2328125</Width>
+				<Height>0.309375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

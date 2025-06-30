@@ -4,22 +4,12 @@
 		<Path>test_276.jpg</Path>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.5366</Confidence>
+			<Confidence>0.7013</Confidence>
 			<Bndbox>
-				<X>0.13046875</X>
-				<Y>0.47265625</Y>
-				<Width>0.2609375</Width>
-				<Height>0.9453125</Height>
-			</Bndbox>
-		</Object>
-		<Object>
-			<Name>Scissors</Name>
-			<Confidence>0.3189</Confidence>
-			<Bndbox>
-				<X>0.13046875</X>
-				<Y>0.46953125</Y>
-				<Width>0.2609375</Width>
-				<Height>0.9265625</Height>
+				<X>0.1296875</X>
+				<Y>0.4734375</Y>
+				<Width>0.259375</Width>
+				<Height>0.815625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

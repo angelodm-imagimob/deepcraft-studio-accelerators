@@ -7,9 +7,9 @@
 			<Confidence>0.9184</Confidence>
 			<Bndbox>
 				<X>0.7609375</X>
-				<Y>0.21484375</Y>
-				<Width>0.290625</Width>
-				<Height>0.4296875</Height>
+				<Y>0.21796875</Y>
+				<Width>0.296875</Width>
+				<Height>0.4359375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

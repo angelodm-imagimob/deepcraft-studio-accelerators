@@ -3,23 +3,23 @@
 	<Annotation>
 		<Path>valid_135.jpg</Path>
 		<Object>
-			<Name>Scissors</Name>
-			<Confidence>0.9194</Confidence>
+			<Name>Paper</Name>
+			<Confidence>0.9085</Confidence>
 			<Bndbox>
-				<X>0.6015625</X>
-				<Y>0.57421875</Y>
-				<Width>0.196875</Width>
-				<Height>0.1984375</Height>
+				<X>0.34609375</X>
+				<Y>0.70703125</Y>
+				<Width>0.3015625</Width>
+				<Height>0.2296875</Height>
 			</Bndbox>
 		</Object>
 		<Object>
-			<Name>Paper</Name>
-			<Confidence>0.8962</Confidence>
+			<Name>Scissors</Name>
+			<Confidence>0.9072</Confidence>
 			<Bndbox>
-				<X>0.3484375</X>
-				<Y>0.71015625</Y>
-				<Width>0.296875</Width>
-				<Height>0.2234375</Height>
+				<X>0.60390625</X>
+				<Y>0.57421875</Y>
+				<Width>0.1984375</Width>
+				<Height>0.1953125</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

@@ -4,9 +4,9 @@
 		<Path>train_5691.jpg</Path>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.8807</Confidence>
+			<Confidence>0.8813</Confidence>
 			<Bndbox>
-				<X>0.9421875</X>
+				<X>0.940625</X>
 				<Y>0.1453125</Y>
 				<Width>0.115625</Width>
 				<Height>0.290625</Height>
@@ -14,12 +14,12 @@
 		</Object>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.8723</Confidence>
+			<Confidence>0.854</Confidence>
 			<Bndbox>
-				<X>0.06171875</X>
-				<Y>0.25390625</Y>
-				<Width>0.1234375</Width>
-				<Height>0.5078125</Height>
+				<X>0.0625</X>
+				<Y>0.2578125</Y>
+				<Width>0.125</Width>
+				<Height>0.515625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

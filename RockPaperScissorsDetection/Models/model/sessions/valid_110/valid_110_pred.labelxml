@@ -4,11 +4,11 @@
 		<Path>valid_110.jpg</Path>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.931</Confidence>
+			<Confidence>0.919</Confidence>
 			<Bndbox>
-				<X>0.65546875</X>
-				<Y>0.85546875</Y>
-				<Width>0.6109375</Width>
+				<X>0.6578125</X>
+				<Y>0.85703125</Y>
+				<Width>0.615625</Width>
 				<Height>0.2859375</Height>
 			</Bndbox>
 		</Object>

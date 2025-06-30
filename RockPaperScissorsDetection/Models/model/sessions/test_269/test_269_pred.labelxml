@@ -3,23 +3,23 @@
 	<Annotation>
 		<Path>test_269.jpg</Path>
 		<Object>
-			<Name>Paper</Name>
-			<Confidence>0.9356</Confidence>
+			<Name>Rock</Name>
+			<Confidence>0.9269</Confidence>
 			<Bndbox>
-				<X>0.28046875</X>
-				<Y>0.46796875</Y>
-				<Width>0.3890625</Width>
-				<Height>0.6234375</Height>
+				<X>0.725</X>
+				<Y>0.49765625</Y>
+				<Width>0.209375</Width>
+				<Height>0.3453125</Height>
 			</Bndbox>
 		</Object>
 		<Object>
-			<Name>Rock</Name>
-			<Confidence>0.9343</Confidence>
+			<Name>Paper</Name>
+			<Confidence>0.9203</Confidence>
 			<Bndbox>
-				<X>0.725</X>
-				<Y>0.4984375</Y>
-				<Width>0.209375</Width>
-				<Height>0.34375</Height>
+				<X>0.27890625</X>
+				<Y>0.46875</Y>
+				<Width>0.3890625</Width>
+				<Height>0.628125</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

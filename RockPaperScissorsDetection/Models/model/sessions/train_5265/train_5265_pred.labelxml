@@ -4,22 +4,22 @@
 		<Path>train_5265.jpg</Path>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.9554</Confidence>
+			<Confidence>0.9337</Confidence>
 			<Bndbox>
-				<X>0.77734375</X>
-				<Y>0.40390625</Y>
-				<Width>0.4296875</Width>
+				<X>0.7734375</X>
+				<Y>0.40546875</Y>
+				<Width>0.428125</Width>
 				<Height>0.5890625</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.9256</Confidence>
+			<Confidence>0.9207</Confidence>
 			<Bndbox>
-				<X>0.30546875</X>
-				<Y>0.39765625</Y>
-				<Width>0.3640625</Width>
-				<Height>0.3734375</Height>
+				<X>0.30625</X>
+				<Y>0.40078125</Y>
+				<Width>0.36875</Width>
+				<Height>0.3859375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

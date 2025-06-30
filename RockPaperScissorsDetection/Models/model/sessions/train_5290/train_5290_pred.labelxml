@@ -7,19 +7,19 @@
 			<Confidence>0.9354</Confidence>
 			<Bndbox>
 				<X>0.11015625</X>
-				<Y>0.328125</Y>
+				<Y>0.3296875</Y>
 				<Width>0.2203125</Width>
-				<Height>0.43125</Height>
+				<Height>0.428125</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.9217</Confidence>
+			<Confidence>0.9318</Confidence>
 			<Bndbox>
 				<X>0.76171875</X>
-				<Y>0.2546875</Y>
+				<Y>0.253125</Y>
 				<Width>0.1953125</Width>
-				<Height>0.33125</Height>
+				<Height>0.334375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

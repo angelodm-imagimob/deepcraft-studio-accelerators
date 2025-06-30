@@ -4,12 +4,12 @@
 		<Path>train_3300.jpg</Path>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.9058</Confidence>
+			<Confidence>0.8917</Confidence>
 			<Bndbox>
-				<X>0.72734375</X>
-				<Y>0.4625</Y>
+				<X>0.72578125</X>
+				<Y>0.4578125</Y>
 				<Width>0.3203125</Width>
-				<Height>0.38125</Height>
+				<Height>0.3625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

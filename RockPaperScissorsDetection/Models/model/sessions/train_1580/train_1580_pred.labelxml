@@ -6,10 +6,10 @@
 			<Name>Rock</Name>
 			<Confidence>0.8729</Confidence>
 			<Bndbox>
-				<X>0.62578125</X>
-				<Y>0.6078125</Y>
-				<Width>0.1109375</Width>
-				<Height>0.21875</Height>
+				<X>0.625</X>
+				<Y>0.60546875</Y>
+				<Width>0.10625</Width>
+				<Height>0.2140625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

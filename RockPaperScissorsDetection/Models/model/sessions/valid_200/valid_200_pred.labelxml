@@ -4,22 +4,32 @@
 		<Path>valid_200.jpg</Path>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.8235</Confidence>
+			<Confidence>0.8055</Confidence>
 			<Bndbox>
-				<X>0.66640625</X>
-				<Y>0.37109375</Y>
+				<X>0.66484375</X>
+				<Y>0.371875</Y>
 				<Width>0.0453125</Width>
-				<Height>0.0890625</Height>
+				<Height>0.090625</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.3799</Confidence>
+			<Confidence>0.7328</Confidence>
 			<Bndbox>
-				<X>0.390625</X>
-				<Y>0.2703125</Y>
-				<Width>0.06875</Width>
-				<Height>0.15625</Height>
+				<X>0.38984375</X>
+				<Y>0.2640625</Y>
+				<Width>0.0796875</Width>
+				<Height>0.146875</Height>
+			</Bndbox>
+		</Object>
+		<Object>
+			<Name>Rock</Name>
+			<Confidence>0.4031</Confidence>
+			<Bndbox>
+				<X>0.46796875</X>
+				<Y>0.578125</Y>
+				<Width>0.0484375</Width>
+				<Height>0.090625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

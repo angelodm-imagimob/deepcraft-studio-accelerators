@@ -4,22 +4,22 @@
 		<Path>train_33.jpg</Path>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.888</Confidence>
+			<Confidence>0.8828</Confidence>
 			<Bndbox>
 				<X>0.446875</X>
-				<Y>0.67578125</Y>
+				<Y>0.675</Y>
 				<Width>0.159375</Width>
-				<Height>0.1453125</Height>
+				<Height>0.15</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.886</Confidence>
+			<Confidence>0.7707</Confidence>
 			<Bndbox>
-				<X>0.65546875</X>
-				<Y>0.55234375</Y>
-				<Width>0.0890625</Width>
-				<Height>0.1953125</Height>
+				<X>0.659375</X>
+				<Y>0.5515625</Y>
+				<Width>0.0875</Width>
+				<Height>0.19375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

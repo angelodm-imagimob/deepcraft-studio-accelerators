@@ -4,22 +4,22 @@
 		<Path>valid_186.jpg</Path>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.879</Confidence>
+			<Confidence>0.8756</Confidence>
 			<Bndbox>
-				<X>0.44609375</X>
-				<Y>0.715625</Y>
-				<Width>0.2640625</Width>
-				<Height>0.15625</Height>
+				<X>0.4453125</X>
+				<Y>0.71328125</Y>
+				<Width>0.265625</Width>
+				<Height>0.1546875</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.7337</Confidence>
+			<Confidence>0.6177</Confidence>
 			<Bndbox>
-				<X>0.38515625</X>
-				<Y>0.896875</Y>
-				<Width>0.2703125</Width>
-				<Height>0.159375</Height>
+				<X>0.390625</X>
+				<Y>0.89453125</Y>
+				<Width>0.275</Width>
+				<Height>0.1421875</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

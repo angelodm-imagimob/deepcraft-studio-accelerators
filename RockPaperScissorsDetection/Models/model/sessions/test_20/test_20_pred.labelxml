@@ -3,13 +3,13 @@
 	<Annotation>
 		<Path>test_20.jpg</Path>
 		<Object>
-			<Name>Paper</Name>
-			<Confidence>0.5228</Confidence>
+			<Name>Rock</Name>
+			<Confidence>0.6651</Confidence>
 			<Bndbox>
 				<X>0.1875</X>
-				<Y>0.815625</Y>
-				<Width>0.2625</Width>
-				<Height>0.153125</Height>
+				<Y>0.8140625</Y>
+				<Width>0.265625</Width>
+				<Height>0.146875</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

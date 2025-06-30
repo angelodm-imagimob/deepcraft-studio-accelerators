@@ -3,23 +3,23 @@
 	<Annotation>
 		<Path>train_5600.jpg</Path>
 		<Object>
-			<Name>Scissors</Name>
-			<Confidence>0.9304</Confidence>
+			<Name>Paper</Name>
+			<Confidence>0.9222</Confidence>
 			<Bndbox>
-				<X>0.25234375</X>
-				<Y>0.4859375</Y>
-				<Width>0.3671875</Width>
-				<Height>0.390625</Height>
+				<X>0.7</X>
+				<Y>0.39140625</Y>
+				<Width>0.365625</Width>
+				<Height>0.6609375</Height>
 			</Bndbox>
 		</Object>
 		<Object>
-			<Name>Paper</Name>
-			<Confidence>0.9235</Confidence>
+			<Name>Scissors</Name>
+			<Confidence>0.9071</Confidence>
 			<Bndbox>
-				<X>0.69921875</X>
-				<Y>0.3921875</Y>
-				<Width>0.3671875</Width>
-				<Height>0.65625</Height>
+				<X>0.25390625</X>
+				<Y>0.484375</Y>
+				<Width>0.3640625</Width>
+				<Height>0.39375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

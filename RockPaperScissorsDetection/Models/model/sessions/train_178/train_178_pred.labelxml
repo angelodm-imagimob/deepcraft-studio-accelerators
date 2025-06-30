@@ -3,23 +3,23 @@
 	<Annotation>
 		<Path>train_178.jpg</Path>
 		<Object>
-			<Name>Paper</Name>
-			<Confidence>0.87</Confidence>
+			<Name>Rock</Name>
+			<Confidence>0.8261</Confidence>
 			<Bndbox>
-				<X>0.6265625</X>
-				<Y>0.76796875</Y>
-				<Width>0.153125</Width>
-				<Height>0.1390625</Height>
+				<X>0.34453125</X>
+				<Y>0.5828125</Y>
+				<Width>0.0890625</Width>
+				<Height>0.178125</Height>
 			</Bndbox>
 		</Object>
 		<Object>
-			<Name>Rock</Name>
-			<Confidence>0.824</Confidence>
+			<Name>Paper</Name>
+			<Confidence>0.8175</Confidence>
 			<Bndbox>
-				<X>0.34453125</X>
-				<Y>0.58359375</Y>
-				<Width>0.0890625</Width>
-				<Height>0.1765625</Height>
+				<X>0.628125</X>
+				<Y>0.76328125</Y>
+				<Width>0.159375</Width>
+				<Height>0.1328125</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

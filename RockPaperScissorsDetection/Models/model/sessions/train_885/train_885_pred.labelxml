@@ -4,11 +4,11 @@
 		<Path>train_885.jpg</Path>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.9058</Confidence>
+			<Confidence>0.9118</Confidence>
 			<Bndbox>
-				<X>0.45078125</X>
-				<Y>0.59609375</Y>
-				<Width>0.2828125</Width>
+				<X>0.44921875</X>
+				<Y>0.59765625</Y>
+				<Width>0.2765625</Width>
 				<Height>0.1859375</Height>
 			</Bndbox>
 		</Object>

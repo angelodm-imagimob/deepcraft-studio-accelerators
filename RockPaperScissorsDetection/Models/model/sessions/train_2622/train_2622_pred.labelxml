@@ -6,9 +6,9 @@
 			<Name>Paper</Name>
 			<Confidence>0.8714</Confidence>
 			<Bndbox>
-				<X>0.25078125</X>
-				<Y>0.4421875</Y>
-				<Width>0.2140625</Width>
+				<X>0.2546875</X>
+				<Y>0.4453125</Y>
+				<Width>0.209375</Width>
 				<Height>0.1125</Height>
 			</Bndbox>
 		</Object>

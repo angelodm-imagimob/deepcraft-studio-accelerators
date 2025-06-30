@@ -4,12 +4,12 @@
 		<Path>valid_51.jpg</Path>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.8703</Confidence>
+			<Confidence>0.907</Confidence>
 			<Bndbox>
-				<X>0.609375</X>
-				<Y>0.6078125</Y>
-				<Width>0.165625</Width>
-				<Height>0.1</Height>
+				<X>0.60703125</X>
+				<Y>0.60859375</Y>
+				<Width>0.1640625</Width>
+				<Height>0.0984375</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

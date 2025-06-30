@@ -3,23 +3,23 @@
 	<Annotation>
 		<Path>train_141.jpg</Path>
 		<Object>
-			<Name>Scissors</Name>
-			<Confidence>0.8376</Confidence>
+			<Name>Rock</Name>
+			<Confidence>0.8583</Confidence>
 			<Bndbox>
-				<X>0.46328125</X>
-				<Y>0.8140625</Y>
-				<Width>0.1296875</Width>
-				<Height>0.165625</Height>
+				<X>0.7234375</X>
+				<Y>0.58125</Y>
+				<Width>0.08125</Width>
+				<Height>0.18125</Height>
 			</Bndbox>
 		</Object>
 		<Object>
-			<Name>Rock</Name>
-			<Confidence>0.8299</Confidence>
+			<Name>Scissors</Name>
+			<Confidence>0.8221</Confidence>
 			<Bndbox>
-				<X>0.72421875</X>
-				<Y>0.57578125</Y>
-				<Width>0.0828125</Width>
-				<Height>0.1796875</Height>
+				<X>0.46328125</X>
+				<Y>0.81328125</Y>
+				<Width>0.1296875</Width>
+				<Height>0.1765625</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

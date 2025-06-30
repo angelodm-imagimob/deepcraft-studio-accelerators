@@ -4,31 +4,21 @@
 		<Path>valid_494.jpg</Path>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.9023</Confidence>
+			<Confidence>0.9156</Confidence>
 			<Bndbox>
-				<X>0.71015625</X>
-				<Y>0.41796875</Y>
-				<Width>0.3640625</Width>
-				<Height>0.6453125</Height>
-			</Bndbox>
-		</Object>
-		<Object>
-			<Name>Rock</Name>
-			<Confidence>0.3331</Confidence>
-			<Bndbox>
-				<X>0.259375</X>
-				<Y>0.5296875</Y>
+				<X>0.7109375</X>
+				<Y>0.4125</Y>
 				<Width>0.36875</Width>
-				<Height>0.303125</Height>
+				<Height>0.653125</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Scissors</Name>
-			<Confidence>0.2522</Confidence>
+			<Confidence>0.3064</Confidence>
 			<Bndbox>
-				<X>0.25703125</X>
-				<Y>0.53125</Y>
-				<Width>0.3609375</Width>
+				<X>0.2625</X>
+				<Y>0.5296875</Y>
+				<Width>0.359375</Width>
 				<Height>0.30625</Height>
 			</Bndbox>
 		</Object>

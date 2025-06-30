@@ -4,22 +4,22 @@
 		<Path>train_5437.jpg</Path>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.9223</Confidence>
+			<Confidence>0.9119</Confidence>
 			<Bndbox>
-				<X>0.16953125</X>
-				<Y>0.5640625</Y>
-				<Width>0.2578125</Width>
-				<Height>0.421875</Height>
+				<X>0.1703125</X>
+				<Y>0.559375</Y>
+				<Width>0.25625</Width>
+				<Height>0.409375</Height>
 			</Bndbox>
 		</Object>
 		<Object>
 			<Name>Rock</Name>
-			<Confidence>0.9149</Confidence>
+			<Confidence>0.8928</Confidence>
 			<Bndbox>
-				<X>0.77734375</X>
-				<Y>0.48359375</Y>
-				<Width>0.2671875</Width>
-				<Height>0.3671875</Height>
+				<X>0.7765625</X>
+				<Y>0.48515625</Y>
+				<Width>0.2625</Width>
+				<Height>0.3703125</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>

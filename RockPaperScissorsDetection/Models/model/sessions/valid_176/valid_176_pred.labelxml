@@ -4,12 +4,12 @@
 		<Path>valid_176.jpg</Path>
 		<Object>
 			<Name>Paper</Name>
-			<Confidence>0.9016</Confidence>
+			<Confidence>0.9096</Confidence>
 			<Bndbox>
-				<X>0.7421875</X>
-				<Y>0.24453125</Y>
-				<Width>0.5125</Width>
-				<Height>0.4546875</Height>
+				<X>0.74140625</X>
+				<Y>0.23984375</Y>
+				<Width>0.5171875</Width>
+				<Height>0.4703125</Height>
 			</Bndbox>
 		</Object>
 	</Annotation>
