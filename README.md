@@ -30,6 +30,12 @@ Use the available `PROJECT_TEMPLATE` to structure your project:
         - `description` (max 100 characters): briefly describe your project. Get inspired by the existing ones in DEEPCRAFT™ Studio.
         - `algorithm`: choose between **Classification** or **Regression**
         - `sensors`: specify the sensor used in you project. Choose from the existing ones in DEEPCRAFT™ Studio: **IMU & Vibration**, **Microphone**, **Capacitive & Inductive Sensing**, **Camera**, etc.
+        - `domain`: Specify the domain(s) of your project: **Audio**, **Voice**, **Vision**, etc.
+	    - `application`: Specify the application(s) of your project: **Smart Home**, **Smart TV**, **Appliances**, **Wearables**, **Games**, etc.
+        - `use_case`: Specify the use case(s) of your project: **Object Detection**, **Voice Control**, **Speech Recognition**, etc.
+        - `kit`: Specify the Infineon's kit(s) your project is compatible with: **PSoC-6 Pioneer Kit**, **PSoC-6 AI Kit**, **PSoC-Edge AI Kit**, etc.
+        - `device`: Specify the device(s) your project is compatible with: **PSoC-4**, **PSoC-6**, **PSoC-Edge**, **AURIX**, etc.
+        - `workflow`: Choose between **ML Development** and/or **ML Deployment**.
 
 Once the project is ready, you can download [pr_tool.zip](https://api.imagimob.com/v1/Data/Object/pr_tool.zip) and run:
 
@@ -44,3 +50,4 @@ where `<project-path>` is the root path of the studio accelerator project. For m
 Please be aware that you will need a GitHub Account. When you run the tool using the command shown above it will authenticate using your GitHub account, fork this repository and prepare the pull request. Once ready, it will open the pull request in a window in your browser. Please add the relevant detail requested to complete your pull request which will aid in the review process and then submit.
 
 ***NOTE:*** The pipeline will automatically generate the pre-processing, model predictions and train some models based on the default best model selection from DEEPCRAFT™ Studio. If you would not like to have this, then please specify in the pull request if that should not be what should be published.
+
