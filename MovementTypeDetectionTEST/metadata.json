@@ -1,7 +1,7 @@
 {
   "title": "Movement Type TEST",
-  "description": "This is a TEST project submission",
-  "algorithm": "Regression",
+  "description": "This is a TEST project submission. Re-submission on existing branch/PR",
+  "algorithm": "Object Detection",
   "sensors": ["Microphone", "IMU", "Current"],
   "thumbnail_image_id": "audio.png",
   "main_image_id": "audio.png"
