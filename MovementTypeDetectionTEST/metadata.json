@@ -1,0 +1,29 @@
+{
+  "title": "Movement Type TEEESSTT",
+  "description": "This is a test...",
+  "long_description": "This is a test...",
+  "sensors": [
+    "Camera",
+    "Proximity"
+  ],
+  "domain": [
+    "IoT"
+  ],
+  "application": [
+    "Industrial IoT"
+  ],
+  "use_case": [
+    "Classification"
+  ],
+  "kit": [
+    "PSOC™ Edge Eval Kit"
+  ],
+  "device": [
+    "PSOC™ Edge"
+  ],
+  "thumbnail_image_id": "",
+  "main_image_id": "",
+  "brand_image_id": "",
+  "links": [],
+  "metrics": []
+}
