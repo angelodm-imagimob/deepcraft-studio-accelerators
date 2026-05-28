@@ -1,8 +1,8 @@
 {
   "title": "Movement Type TEEESSTT",
   "description": "This is a test...",
-  "algorithm": "Classification",
+  "algorithm": "Regression",
   "sensors": ["Microphone"],
-  "thumbnail_image_id": "automotive_machine_maintenance.png",
-  "main_image_id": "automotive_machine_maintenance.png"
+  "thumbnail_image_id": "industrial_setting_safety.png",
+  "main_image_id": "industrial_setting_safety.png"
 }
