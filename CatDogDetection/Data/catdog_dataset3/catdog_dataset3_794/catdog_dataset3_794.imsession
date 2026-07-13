@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="65ef38f8-c671-47ef-bd55-99f2c195de65">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>catdog_dataset3_794.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>catdog_dataset3_794.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

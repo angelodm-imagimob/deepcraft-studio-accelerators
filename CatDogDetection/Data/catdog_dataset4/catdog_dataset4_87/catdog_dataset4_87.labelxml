@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>cat</Name>
+      <Bndbox>
+        <X>0.5144230769230769</X>
+        <Y>0.5408653846153846</Y>
+        <Width>0.7307692307692307</Width>
+        <Height>0.6586538461538461</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

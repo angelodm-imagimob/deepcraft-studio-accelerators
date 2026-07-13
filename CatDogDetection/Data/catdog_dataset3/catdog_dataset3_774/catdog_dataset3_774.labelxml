@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>cat</Name>
+      <Bndbox>
+        <X>0.7171875</X>
+        <Y>0.646875</Y>
+        <Width>0.346875</Width>
+        <Height>0.61875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>cat</Name>
+      <Bndbox>
+        <X>0.484375</X>
+        <Y>0.478125</Y>
+        <Width>0.9625</Width>
+        <Height>0.83125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>cat</Name>
+      <Bndbox>
+        <X>0.853125</X>
+        <Y>0.6171875</Y>
+        <Width>0.29375</Width>
+        <Height>0.471875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

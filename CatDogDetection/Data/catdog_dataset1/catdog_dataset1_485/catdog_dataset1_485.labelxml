@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>dog</Name>
+      <Bndbox>
+        <X>0.3296875</X>
+        <Y>0.2953125</Y>
+        <Width>0.321875</Width>
+        <Height>0.4</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>dog</Name>
+      <Bndbox>
+        <X>0.59453125</X>
+        <Y>0.39453125</Y>
+        <Width>0.1265625</Width>
+        <Height>0.1828125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>dog</Name>
+      <Bndbox>
+        <X>0.65234375</X>
+        <Y>0.35859375</Y>
+        <Width>0.1296875</Width>
+        <Height>0.1734375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>dog</Name>
+      <Bndbox>
+        <X>0.79375</X>
+        <Y>0.375</Y>
+        <Width>0.11875</Width>
+        <Height>0.165625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
