@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="b7f8d7d0-d383-47e5-b5fb-7cae3462c3c7">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>emerg_dataset5_9.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>emerg_dataset5_9.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>fire_truck</Name>
+      <Bndbox>
+        <X>0.32578125</X>
+        <Y>0.7493055555555556</Y>
+        <Width>0.0578125</Width>
+        <Height>0.1763888888888889</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>fire_truck</Name>
+      <Bndbox>
+        <X>0.221875</X>
+        <Y>0.5451388888888888</Y>
+        <Width>0.0796875</Width>
+        <Height>0.0763888888888889</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>fire_truck</Name>
+      <Bndbox>
+        <X>0.608984375</X>
+        <Y>0.05625</Y>
+        <Width>0.01953125</Width>
+        <Height>0.0375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

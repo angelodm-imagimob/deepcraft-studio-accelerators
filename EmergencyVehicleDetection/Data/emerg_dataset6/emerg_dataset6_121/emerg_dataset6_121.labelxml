@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>police_car</Name>
+      <Bndbox>
+        <X>0.48363636363636364</X>
+        <Y>0.6222826086956522</Y>
+        <Width>0.8654545454545455</Width>
+        <Height>0.5271739130434783</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

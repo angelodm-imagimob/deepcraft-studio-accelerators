@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>police_car</Name>
+      <Bndbox>
+        <X>0.7488473951129553</X>
+        <Y>0.36737588652482267</Y>
+        <Width>0.1966343937298294</Width>
+        <Height>0.35815602836879434</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>police_car</Name>
+      <Bndbox>
+        <X>0.6613646841862609</X>
+        <Y>0.5127659574468085</Y>
+        <Width>0.23328722913785155</Width>
+        <Height>0.549645390070922</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>police_car</Name>
+      <Bndbox>
+        <X>0.3674504379898571</X>
+        <Y>0.597872340425532</Y>
+        <Width>0.5066851083448594</Width>
+        <Height>0.7624113475177305</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

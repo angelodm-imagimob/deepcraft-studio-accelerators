@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>ambulance</Name>
+      <Bndbox>
+        <X>0.48197115384615385</X>
+        <Y>0.5444711538461539</Y>
+        <Width>0.7379807692307693</Width>
+        <Height>0.65625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>ambulance</Name>
+      <Bndbox>
+        <X>0.8834134615384616</X>
+        <Y>0.5012019230769231</Y>
+        <Width>0.2283653846153846</Width>
+        <Height>0.25240384615384615</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

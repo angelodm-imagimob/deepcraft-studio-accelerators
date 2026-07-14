@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>fire_truck</Name>
+      <Bndbox>
+        <X>0.44268048128342247</X>
+        <Y>0.3648061497326203</Y>
+        <Width>0.16343582887700533</Width>
+        <Height>0.24164438502673796</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
