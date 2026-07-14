@@ -34,6 +34,8 @@ Users can further expand this project by training their own models, importing ne
 
 - **`Models`** - Stores the trained YOLO-based model and its quantized versions as well as their predictions.
 
+- **`Resources`** - Folder containing supporting project files, including `rename_mapping.csv` and `rename_mapping.json` which map the current session image names back to their original Roboflow source filenames.
+
 ## Steps to get started: Model Training and Evaluation
 
 1. Train the YOLO-based model using the provided dataset or custom data.
