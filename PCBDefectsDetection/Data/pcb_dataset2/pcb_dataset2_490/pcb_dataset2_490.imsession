@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="283b5613-1966-4bfd-8a58-5ed3e599357f">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>pcb_dataset2_490.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>pcb_dataset2_490.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="yolov8n-size320-batch16-epoch200_predictions_train" type="labelxml">
+        <PayloadFile>..\..\..\Models\yolov8n-size320-batch16-epoch200_v2\predictions\sessions\pcb_dataset2_490\pcb_dataset2_490_pred.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

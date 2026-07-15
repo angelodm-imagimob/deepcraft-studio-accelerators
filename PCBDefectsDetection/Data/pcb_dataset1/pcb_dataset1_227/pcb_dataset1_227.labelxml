@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>mouse_bite</Name>
+      <Bndbox>
+        <X>0.60703125</X>
+        <Y>0.45625</Y>
+        <Width>0.0265625</Width>
+        <Height>0.025</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>mouse_bite</Name>
+      <Bndbox>
+        <X>0.20546875</X>
+        <Y>0.57265625</Y>
+        <Width>0.0203125</Width>
+        <Height>0.0328125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>mouse_bite</Name>
+      <Bndbox>
+        <X>0.5421875</X>
+        <Y>0.37578125</Y>
+        <Width>0.01875</Width>
+        <Height>0.0265625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

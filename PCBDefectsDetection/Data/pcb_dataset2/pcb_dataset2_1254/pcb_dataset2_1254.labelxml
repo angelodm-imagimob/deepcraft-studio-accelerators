@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>open_circuit</Name>
+      <Bndbox>
+        <X>0.33984375</X>
+        <Y>0.40625</Y>
+        <Width>0.1078125</Width>
+        <Height>0.146875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>short</Name>
+      <Bndbox>
+        <X>0.21953125</X>
+        <Y>0.865625</Y>
+        <Width>0.1046875</Width>
+        <Height>0.1875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>short</Name>
+      <Bndbox>
+        <X>0.521875</X>
+        <Y>0.86953125</Y>
+        <Width>0.1875</Width>
+        <Height>0.1953125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.80234375</X>
+        <Y>0.5671875</Y>
+        <Width>0.0640625</Width>
+        <Height>0.046875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

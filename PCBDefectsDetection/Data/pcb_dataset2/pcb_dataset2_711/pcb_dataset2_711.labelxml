@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>mouse_bite</Name>
+      <Bndbox>
+        <X>0.365625</X>
+        <Y>0.44921875</Y>
+        <Width>0.0625</Width>
+        <Height>0.0453125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.1984375</X>
+        <Y>0.4515625</Y>
+        <Width>0.059375</Width>
+        <Height>0.071875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.85</X>
+        <Y>0.54609375</Y>
+        <Width>0.065625</Width>
+        <Height>0.0578125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

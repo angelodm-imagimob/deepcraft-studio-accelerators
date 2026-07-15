@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>spur</Name>
+      <Bndbox>
+        <X>0.56484375</X>
+        <Y>0.0609375</Y>
+        <Width>0.0921875</Width>
+        <Height>0.071875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>spur</Name>
+      <Bndbox>
+        <X>0.99609375</X>
+        <Y>0.37578125</Y>
+        <Width>0.0109375</Width>
+        <Height>0.1046875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

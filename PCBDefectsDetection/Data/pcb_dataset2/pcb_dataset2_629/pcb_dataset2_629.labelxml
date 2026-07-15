@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>open_circuit</Name>
+      <Bndbox>
+        <X>0.4203125</X>
+        <Y>0.384375</Y>
+        <Width>0.0625</Width>
+        <Height>0.040625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>mouse_bite</Name>
+      <Bndbox>
+        <X>0.275</X>
+        <Y>0.25546875</Y>
+        <Width>0.05625</Width>
+        <Height>0.0453125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.334375</X>
+        <Y>0.21171875</Y>
+        <Width>0.046875</Width>
+        <Height>0.0390625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>spur</Name>
+      <Bndbox>
+        <X>0.8640625</X>
+        <Y>0.740625</Y>
+        <Width>0.0625</Width>
+        <Height>0.05625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

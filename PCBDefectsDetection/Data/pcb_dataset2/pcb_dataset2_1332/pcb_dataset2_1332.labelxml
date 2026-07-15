@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>open_circuit</Name>
+      <Bndbox>
+        <X>0.16875</X>
+        <Y>0.47265625</Y>
+        <Width>0.140625</Width>
+        <Height>0.0828125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>spur</Name>
+      <Bndbox>
+        <X>0.38046875</X>
+        <Y>0.64765625</Y>
+        <Width>0.0671875</Width>
+        <Height>0.0484375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.5140625</X>
+        <Y>0.44609375</Y>
+        <Width>0.05625</Width>
+        <Height>0.0796875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>spur</Name>
+      <Bndbox>
+        <X>0.51796875</X>
+        <Y>0.309375</Y>
+        <Width>0.0578125</Width>
+        <Height>0.059375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

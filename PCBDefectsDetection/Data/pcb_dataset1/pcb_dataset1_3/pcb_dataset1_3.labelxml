@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.73359375</X>
+        <Y>0.59765625</Y>
+        <Width>0.0203125</Width>
+        <Height>0.0421875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.39375</X>
+        <Y>0.775</Y>
+        <Width>0.01875</Width>
+        <Height>0.034375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>missing_hole</Name>
+      <Bndbox>
+        <X>0.58203125</X>
+        <Y>0.74296875</Y>
+        <Width>0.0203125</Width>
+        <Height>0.0328125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

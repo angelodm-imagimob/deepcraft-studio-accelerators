@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>open_circuit</Name>
+      <Bndbox>
+        <X>0.33828125</X>
+        <Y>0.63515625</Y>
+        <Width>0.0203125</Width>
+        <Height>0.0234375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>open_circuit</Name>
+      <Bndbox>
+        <X>0.20390625</X>
+        <Y>0.759375</Y>
+        <Width>0.0171875</Width>
+        <Height>0.01875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>open_circuit</Name>
+      <Bndbox>
+        <X>0.59453125</X>
+        <Y>0.52265625</Y>
+        <Width>0.0171875</Width>
+        <Height>0.0203125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
