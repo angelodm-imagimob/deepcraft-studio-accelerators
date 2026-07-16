@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="614d7e4f-db62-4f17-a038-20bb51ffd277">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>ppe_site_dataset4_1435.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>ppe_site_dataset4_1435.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

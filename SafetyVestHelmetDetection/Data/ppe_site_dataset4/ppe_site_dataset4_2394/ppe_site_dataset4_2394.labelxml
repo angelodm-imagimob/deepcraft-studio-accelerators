@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>safety_vest</Name>
+      <Bndbox>
+        <X>0.63984375</X>
+        <Y>0.7046875</Y>
+        <Width>0.0421875</Width>
+        <Height>0.346875</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>helmet</Name>
+      <Bndbox>
+        <X>0.684375</X>
+        <Y>0.559375</Y>
+        <Width>0.046875</Width>
+        <Height>0.05625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>safety_vest</Name>
+      <Bndbox>
+        <X>0.71171875</X>
+        <Y>0.73671875</Y>
+        <Width>0.1015625</Width>
+        <Height>0.2453125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

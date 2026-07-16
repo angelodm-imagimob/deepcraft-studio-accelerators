@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>no_helmet</Name>
+      <Bndbox>
+        <X>0.09375</X>
+        <Y>0.478125</Y>
+        <Width>0.184375</Width>
+        <Height>0.115625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>no_helmet</Name>
+      <Bndbox>
+        <X>0.4125</X>
+        <Y>0.95390625</Y>
+        <Width>0.115625</Width>
+        <Height>0.0953125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

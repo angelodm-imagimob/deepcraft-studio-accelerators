@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>safety_vest</Name>
+      <Bndbox>
+        <X>0.03333333333333333</X>
+        <Y>0.49907407407407406</Y>
+        <Width>0.03125</Width>
+        <Height>0.053703703703703705</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>helmet</Name>
+      <Bndbox>
+        <X>0.7765625</X>
+        <Y>0.19765625</Y>
+        <Width>0.240625</Width>
+        <Height>0.2328125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
