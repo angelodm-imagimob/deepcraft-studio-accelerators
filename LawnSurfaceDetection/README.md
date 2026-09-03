@@ -46,6 +46,8 @@ Image data is stored as DEEPCRAFT™ Studio object-detection sessions under `Dat
 
 **Important:** This starter dataset teaches surface *classes* but does **not** match an automower's on-board camera (height, angle, motion blur, and garden layout). Soil and road images are mostly texture close-ups; flower images mix outdoor plants and classification crops; grass images are turf close-ups and mixed lawn viewpoints, not robot-mounted camera footage. **For production on a real automower, collecting and labeling data from your robot's camera along its actual mowing route is crucial**—expect to add hundreds to thousands of mower POV sessions before the model generalizes reliably in the field.
 
+**Training augmentation:** DEEPCRAFT Studio Augmentation Settings in this project's `.improj` were changed to better mimic the field of view of a mower running outdoors. Rotation (`degrees` 20), translation (`translate` 0.3), shear (`shear` 20), and perspective (`perspective` 0.001) approximate camera tilt and motion; HSV hue is lowered (`hsv_h` 0.005) and brightness is raised (`hsv_v` 0.6) for outdoor lighting. Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
+
 Data sources and commercial-use conditions:
 
 - `grass_dataset1` (1000 images, CC BY 4.0): https://universe.roboflow.com/iowa-state-university-krhld/grass-o0vum

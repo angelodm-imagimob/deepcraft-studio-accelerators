@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ImagimobStudio version="1.1.0">
-  <Job id="29391d78-a548-11f1-952f-d17a02babb7a" />
+  <Job id="03331601-a6db-11f1-a76a-75a4e3d54ecc" />
   <ProjectType>ObjectDetection</ProjectType>
   <ProjectId>7ff22e9d-0b39-4ef1-99ea-00364a49ea9c</ProjectId>
   <ModelFactory>
@@ -31,24 +31,24 @@
       <Training />
       <ConfusionMatrix />
     </BuildSteps>
-    <YoloVersion>yolov8n</YoloVersion>
+    <YoloVersion>yolo26n</YoloVersion>
     <ImageSize>320</ImageSize>
     <Augmentation>
-      <Degrees>0</Degrees>
-      <Translate>0.1</Translate>
+      <Degrees>20</Degrees>
+      <Translate>0.3</Translate>
       <Scale>0.5</Scale>
-      <Shear>0</Shear>
+      <Shear>20</Shear>
       <FlipLeftRight>0.5</FlipLeftRight>
       <FlipUpDown>0</FlipUpDown>
-      <Perspective>0</Perspective>
+      <Perspective>0.001</Perspective>
       <Bgr>0</Bgr>
       <Mosaic>1</Mosaic>
       <Mixup>0</Mixup>
       <CopyPasteMode>Flip</CopyPasteMode>
       <CopyPaste>0</CopyPaste>
       <HsvSaturation>0.7</HsvSaturation>
-      <HsvValue>0.4</HsvValue>
-      <HsvHue>0.015</HsvHue>
+      <HsvValue>0.6</HsvValue>
+      <HsvHue>0.005</HsvHue>
     </Augmentation>
     <AdvancedOptions>
       <Optimizer>SGD</Optimizer>
@@ -66,7 +66,7 @@
     <IsNasEnabled>False</IsNasEnabled>
   </ModelFactory>
   <Models>
-    <Model name="yolov8n-size320-batch16-epoch200" id="dd8dc8ee-600b-478a-ac0b-6ffd5be4c484">
+    <Model name="yolo26n-size320-batch16-epoch200" id="dd8dc8ee-600b-478a-ac0b-6ffd5be4c484">
       <LossFunction>CategoricalCrossentropy</LossFunction>
       <Epochs>200</Epochs>
       <BatchSize>16</BatchSize>
