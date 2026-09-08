@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ImagimobStudio version="0.9">
+  <Timeline id="ede46273-0347-4fe5-80b0-bbbd746b8c34">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>goat_dataset3_880.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>goat_dataset3_880.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

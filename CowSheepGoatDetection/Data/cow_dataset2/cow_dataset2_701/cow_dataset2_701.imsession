@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ImagimobStudio version="0.9">
+  <Timeline id="4f5ba35f-5010-4e69-96b6-cd6a0c298e20">
+    <Tracks>
+      <Track name="image" type="imagejpg">
+        <PayloadFile>cow_dataset2_701.jpg</PayloadFile>
+        <Shape />
+      </Track>
+      <Track name="label" type="labelxml">
+        <PayloadFile>cow_dataset2_701.labelxml</PayloadFile>
+        <Shape />
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>

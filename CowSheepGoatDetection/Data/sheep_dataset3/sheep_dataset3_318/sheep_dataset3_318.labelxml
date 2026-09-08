@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>sheep</Name>
+      <Bndbox>
+        <X>0.3942652329749104</X>
+        <Y>0.5414364640883977</Y>
+        <Width>0.5663082437275986</Width>
+        <Height>0.8066298342541437</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>sheep</Name>
+      <Bndbox>
+        <X>0.8297491039426523</X>
+        <Y>0.5220994475138122</Y>
+        <Width>0.2114695340501792</Width>
+        <Height>0.2596685082872928</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

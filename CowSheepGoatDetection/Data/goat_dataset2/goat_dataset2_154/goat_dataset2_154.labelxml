@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>goat</Name>
+      <Bndbox>
+        <X>0.28125</X>
+        <Y>0.51875</Y>
+        <Width>0.109375</Width>
+        <Height>0.134375</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>goat</Name>
+      <Bndbox>
+        <X>0.24296875</X>
+        <Y>0.55625</Y>
+        <Width>0.0953125</Width>
+        <Height>0.20625</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>goat</Name>
+      <Bndbox>
+        <X>0.6546875</X>
+        <Y>0.52109375</Y>
+        <Width>0.115625</Width>
+        <Height>0.1828125</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>

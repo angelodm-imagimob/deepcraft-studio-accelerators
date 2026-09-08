@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Annotations>
+  <Annotation>
+    <Object>
+      <Name>sheep</Name>
+      <Bndbox>
+        <X>0.4064516129032258</X>
+        <Y>0.7423312883435583</Y>
+        <Width>0.36774193548387096</Width>
+        <Height>0.5153374233128835</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>sheep</Name>
+      <Bndbox>
+        <X>0.8516129032258064</X>
+        <Y>0.42024539877300615</Y>
+        <Width>0.12903225806451613</Width>
+        <Height>0.15337423312883436</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>sheep</Name>
+      <Bndbox>
+        <X>0.25</X>
+        <Y>0.20552147239263804</Y>
+        <Width>0.08709677419354839</Width>
+        <Height>0.17791411042944785</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+  <Annotation>
+    <Object>
+      <Name>sheep</Name>
+      <Bndbox>
+        <X>0.5258064516129032</X>
+        <Y>0.50920245398773</Y>
+        <Width>0.5419354838709678</Width>
+        <Height>0.9570552147239264</Height>
+      </Bndbox>
+    </Object>
+  </Annotation>
+</Annotations>
