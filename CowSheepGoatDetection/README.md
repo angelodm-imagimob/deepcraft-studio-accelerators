@@ -46,9 +46,27 @@ Image data is stored as DEEPCRAFT™ Studio object-detection sessions under `Dat
 
 **Small-box cleaning:** Sessions were filtered so tiny labels do not remain in the training set. At the 320 px training size, boxes whose shorter side is under 24 px are dropped, and images that would be left with unlabeled animals after that cut are skipped entirely. Distant specks that a 320 px detector cannot localize reliably are therefore not used as positives.
 
-**Training augmentation:** DEEPCRAFT™ Studio Augmentation Settings in this project's `.improj` are chosen for upright farm animals at 320 px rather than for extreme viewpoint change. Rotation is mild (`degrees` 5) and translation is modest (`translate` 0.1); scale (`scale` 0.2) and mosaic (`mosaic` 0.5) are kept below the YOLO defaults so distant animals are not shrunk further. Flip left/right is on (`fliplr` 0.5); flip up/down, shear, and perspective are off so animals stay the right way up. HSV saturation (`hsv_s` 0.35) and brightness (`hsv_v` 0.4) cover outdoor lighting, with a small hue shift (`hsv_h` 0.015). Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
+**Training augmentation:** Values below are the DEEPCRAFT™ Studio Augmentation Settings stored in `CowSheepGoatDetection.improj`. They are chosen for upright farm animals at 320 px: enough lighting and pose variety for outdoor cameras, without shrinking already-small animals or turning them upside down. Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
 
-Data sources and commercial-use conditions:
+- `degrees` 5 — mild rotation for a camera that is not perfectly level; kept small so animals stay recognizable as upright livestock.
+- `translate` 0.1 — default shift, so animals can appear off-center as they do when walking through a frame.
+- `scale` 0.2 — below the YOLO default (0.5) so mosaic and zoom-out do not shrink animals further at 320 px after small-box cleaning.
+- `shear` 0 — left at the default off. Shear distorts body shape and would make cow, sheep, and goat harder to tell apart.
+- `fliplr` 0.5 — default left/right flip, so the model does not depend on which way the animal is facing.
+- `flipud` 0 — left at the default off. Farm cameras see animals standing on the ground, not upside down.
+- `perspective` 0 — left at the default off. Strong perspective warp is a poor match for a mostly side-on or slightly elevated livestock view.
+- `bgr` 0 — left at the default off. Channel swap is not a realistic camera failure mode here.
+- `mosaic` 0.5 — below the YOLO default (1.0) so four-image mosaics are used only half the time and distant animals are less often packed into tiny tiles.
+- `mixup` 0 — left at the default off. Blending two images would overlay animals and confuse box labels.
+- `copy_paste` 0 (`CopyPasteMode` Flip) — left at the default off. Pasting animals onto other scenes is unused; the mode setting has no effect while copy-paste is 0.
+- `hsv_s` 0.35 — below the YOLO default (0.7) so coat colors stay plausible; sheep vs goat already overlap, and extreme desaturation would make that worse.
+- `hsv_v` 0.4 — default brightness jitter for sun, shade, and barn lighting.
+- `hsv_h` 0.015 — default small hue shift so outdoor white-balance changes are covered without recoloring coats.
+
+For selecting the most meaningful parameters for Data Augmentations it is important to understand your dataset, the use-case and the environment setup.
+
+
+**Data sources and commercial-use conditions:**
 
 - `cow_dataset1` (1290 images, MIT): https://universe.roboflow.com/jaaz/cattle-xbqql
   - Dedicated cattle dataset. The `Cattle` class is mapped to `cow`.
