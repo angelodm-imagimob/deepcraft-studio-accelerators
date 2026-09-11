@@ -1,7 +1,7 @@
 {
   "title": "Human Breath Detection (DPS)",
   "description": "Classification-based project, which should recognize breathing vs gentle blowing.",
-  "long_description": "This project uses Infineon XENSIV Digital Barometric Pressure and Temperature sensor to distinguish between different types of human breath: fast, focused airflow and involuntary warm exhalation. This system could help in monitoring breathing presence for medical and personal assistance devices.",
+  "long_description": "This project uses Infineon XENSIV\u2122 Digital Barometric Pressure and Temperature sensor to distinguish between different types of human breath: fast, focused airflow and involuntary warm exhalation. This system could help in monitoring breathing presence for medical and personal assistance devices.",
   "algorithm": "Classification",
   "sensors": ["DPS"],
   "domain": ["Temperature and Humidity", "Pressure"],
