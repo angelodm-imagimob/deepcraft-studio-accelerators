@@ -7,10 +7,11 @@
         "Voltage"
     ],
     "domain": [
-        "Electronic Sensing"
+        "Electrical Signals"
     ],
     "application": [
-        "Battery Management System (BMS)"
+        "Battery Management System (BMS)",
+        "Automotive"
     ],
     "use_case": [
         "Capacity Estimation",

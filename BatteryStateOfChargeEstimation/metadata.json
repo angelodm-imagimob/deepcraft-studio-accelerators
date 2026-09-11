@@ -7,10 +7,12 @@
         "Current","Voltage","Temperature"
     ],
     "domain": [
-        "Electronic Sensing"
+        "Electrical Signals",
+        "Temperature and Humidity"
     ],
     "application": [
-        "Battery Management System (BMS)"
+        "Battery Management System (BMS)",
+        "Automotive"
     ],
     "use_case": [
         "State of Charge (SoC) Estimation"
