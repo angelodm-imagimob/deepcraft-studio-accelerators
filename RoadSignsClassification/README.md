@@ -1,10 +1,10 @@
-﻿# Road Sign Classification
+﻿# Road Sign Image Classification
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 ## Overview - Use-Case
 
-The **Road Sign Classification** project builds an end-to-end system that identifies **43 German traffic sign classes** from camera or live video input, including speed limits, warning signs, prohibitory signs, and mandatory signs (GTSRB).
+The **Road Sign Image Classification** project builds an end-to-end system that identifies **43 German traffic sign classes** from camera or live video input, including speed limits, warning signs, prohibitory signs, and mandatory signs (GTSRB).
 
 The image classification model can be used in applications for
 
@@ -20,7 +20,7 @@ Users can further expand this project by training their own models, importing ne
 
 ## Features
 
-1. **Real-Time Classification**: The project uses a deep learning model to classify traffic signs accurately and in real-time.
+1. **Real-Time Image Classification**: The project uses a deep learning model to classify traffic signs accurately and in real-time.
 2. **Custom Data Integration**: Users can add new data through the data import or using `Image Classification Data Collection Graph UX` template and label their own data for model training.
 3. **Model Evaluation**: Evaluate trained models by double-clicking the `.tflite` file; it will generate a Graph UX project to run.
 
@@ -29,6 +29,8 @@ Users can further expand this project by training their own models, importing ne
 - **`Data`**: Contains starter data from the **German Traffic Sign Recognition Benchmark (GTSRB)** as RGB PNG sessions **resized to 64×64**, covering **43 traffic sign classes** such as speed limits, stop, yield, no entry, and other warning, mandatory, and prohibitory signs. Data consists of 51,839 labeled sessions grouped into class folders (for example `speed_limit_50km_h`, `stop`, `yield`). Class counts are unbalanced: the largest classes include `speed_limit_50km_h` (3,000), `speed_limit_30km_h` (2,940), and `yield` (2,880); the smallest include `speed_limit_20km_h` (270), `dangerous_curve_left` (270), and `go_straight_or_left` (270).
 
 - **`Models`**: Stores the trained image classification model and its quantized versions as well as their predictions.
+
+- **`Resources`**: Mapping of project sessions to original GTSRB files (`rename_mapping.csv`, `rename_mapping.json`).
 
 ## Steps to get started: Model Training and Evaluation
 
@@ -42,18 +44,24 @@ Users can further expand this project by training their own models, importing ne
 
 Image data is stored as DEEPCRAFT™ Studio image-classification sessions under `Data/`. Each session contains a 64×64 RGB PNG and a `LabelXml` annotation with a class name (no bounding box). The project currently contains 51,839 sessions targeting 43 GTSRB classes. Sessions are grouped by class folder.
 
-**Image size:** Official GTSRB images are PPM files whose size varies (about 15×15 to 250×250 pixels) and are not always square. For this project they were converted to RGB PNG and resized to **64×64**, which is also the training `ImageSize` in `RoadSignsClassification.improj`. New data should be imported at the same 64×64 RGB size, or resized to match before training.
+**Image size:** Official GTSRB images are PPM files whose size varies (about 15×15 to 250×250 pixels) and are not always square. For this project they were converted to RGB PNG and resized to **64×64**, which is also the training `ImageSize`. New data should be imported at the same 64×64 RGB size, or resized to match before training.
 
-**Official GTSRB train/test split:** GTSRB is published in two parts: a training set (39,209 images) and a held-out test set (12,630 images). This project keeps that split. The official training images are used for **train** (29,397 sessions, `train_*`) and **validation** (9,812 sessions, `valid_*`). The official test images are used only for the **test** set (12,630 sessions, `test_*`), so evaluation is not mixed with images the model saw during training or validation. The 60/20/20 values stored in the project file are the Studio default target sizes; the assigned sessions follow the official GTSRB partitions above, not a random 60/20/20 draw over all 51,839 images.
+**Official GTSRB train/test split:** GTSRB is published in two parts: a training set (39,209 images) and a held-out test set (12,630 images). This project keeps that split. The official test images are used only for the **test** set (12,630 sessions). The 60/20/20 values stored in the project file are the Studio default target sizes; assigned sessions follow the partitions below, not a random 60/20/20 draw over all 51,839 images.
 
-**Training augmentation:** Values below are the DEEPCRAFT™ Studio Augmentation Settings stored in `RoadSignsClassification.improj`. They are applied at 64 px. Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
+**Train vs validation is split by track.** Official GTSRB training images come in **tracks of 30 frames** of the same physical sign (the camera approaching one sign). Splitting those frames at random puts near-duplicate views of the same sign in both train and validation and makes validation scores look unrealistically high. This project instead keeps each of the 1,307 tracks entirely in train or entirely in validation (about 75/25 of tracks per class): **29,430 train**, **9,779 validation**, **12,630 test**. Session folder names use `train_*`, `valid_*`, and `test_*` to match the assigned set.
+
+Track-based splitting, together with leaving left/right and up/down flip off, produced the best results on this dataset.
+
+**Training augmentation:** Values below are the DEEPCRAFT™ Studio Augmentation Settings stored in this project. They are applied at 64 px. Parameter names follow [YOLO data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation).
+
+**Do not enable flip left/right (`fliplr`) or flip up/down (`flipud`).** Traffic signs are not symmetric. A left/right flip turns a left curve into a right curve (and `keep_left` into `keep_right`). Flipping also mirrors digits on speed-limit signs, so the model would train on invalid numbers. An up/down flip is equally wrong: signs are not seen upside down, and it also distorts arrows and digits. Using either flip will not give correct results on this task.
 
 - `degrees` 0 — no rotation; traffic signs are upright, and rotating them can mix similar shapes.
 - `translate` 0.1 — default shift, so the sign can sit slightly off-center in the crop.
 - `scale` 0.5 — default zoom range for signs seen at different distances.
 - `shear` 0 — left at the default off. Shear distorts pictograms and digits.
-- `fliplr` 0.5 — left/right flip is currently on. For production, consider turning this off: classes such as `dangerous_curve_left` vs `dangerous_curve_right` and `keep_left` vs `keep_right` reverse meaning when mirrored.
-- `flipud` 0 — left at the default off. Road cameras do not see signs upside down.
+- `fliplr` 0 — **must stay off.** Left/right flip is invalid for this dataset: curve and keep-left/keep-right signs change class when mirrored, and speed-limit digits are no longer the same number.
+- `flipud` 0 — **must stay off.** Up/down flip is invalid: roadside cameras do not see signs upside down, and it also corrupts arrows and speed values.
 - `perspective` 0 — left at the default off.
 - `bgr` 0 — left at the default off. Channel swap is not a realistic camera failure mode here.
 - `mosaic` 1 — default mosaic on.
@@ -87,14 +95,15 @@ The recommended path to production for this project includes the following steps
 - **Add more data for traffic sign classes with low classification accuracy.** The starter dataset has 51,839 GTSRB sessions, but several classes have only a few hundred examples (`speed_limit_20km_h`, `dangerous_curve_left`, `go_straight_or_left`). Performance can also drop on your target camera, country, or sign design. Collect and label images from the actual deployment scene—same angle, distance, and lighting—and retrain until those classes are classified reliably.
 - **Add more classes if needed.** The project currently classifies the 43 GTSRB classes only. If your product must cover another country, extra speed limits, or extra warning pictograms, add new classes and label accordingly before retraining.
 - **Add negative data.** Include non-relevant objects and backgrounds (billboards, logos, buildings, vehicles) as unlabeled negatives so the model does not treat every red or blue shape as a traffic sign, then retrain.
-- **Watch directional and digit confusions.** Left/right variants and nearby speed limits (30 vs 50, 80 vs 100) are easy to mix; extra close-up examples from your camera reduce mix-ups that the original GTSRB crops cannot fix alone. Prefer leaving left/right flip off when those classes matter.
-- **Match augmentation to roadside variability.** Try different augmentation settings to increase the variability of the dataset, such as rotation and perspective/zoom to mimic viewing signs from different angles and distances, and brightness/contrast changes to cover different lighting conditions. Keep flip up/down off; keep rotation small so pictograms stay readable.
+- **Do not use flip left/right or flip up/down.** You cannot flip signs with curves or with a speed value. A left/right flip turns `dangerous_curve_left` into `dangerous_curve_right` (and the same for keep-left/keep-right) and mirrors the digits on speed-limit signs. An up/down flip puts signs upside down and also distorts arrows and numbers. Either setting will train the model on labels that no longer match the image. Leave `fliplr` and `flipud` at 0.
+- **Watch directional and digit confusions.** Left/right variants and nearby speed limits (30 vs 50, 80 vs 100) are easy to mix; extra close-up examples from your camera reduce mix-ups that the original GTSRB crops cannot fix alone.
+- **Match augmentation to roadside variability.** Try different augmentation settings to increase the variability of the dataset, such as modest perspective/zoom to mimic viewing signs from different angles and distances, and brightness/contrast changes to cover different lighting conditions. Keep rotation small so pictograms stay readable. Do **not** use left/right or up/down flip.
 - **Try different advanced settings** such as optimizer or confidence threshold to make the model more or less sensitive. Missing a speed-limit sign may affect driver assistance; a false detection may show the wrong limit—set thresholds for the cost you care about.
 - **Add data from different lighting, weather, and driving conditions.** Collect from day, night, dawn, dusk, rain, and fog, and include various camera angles, motion blur, and partial occlusions to enhance classification accuracy in real driving scenarios.
 
 Some points to highlight:
 
-- **Increase data variability:** Collect data from different environments, cameras, lighting and weather conditions, distances, and backgrounds. Use DEEPCRAFT™ Studio augmentation settings (flip, scale, brightness, exposure) to increase image variability for vision models, while keeping left/right flip off if directional classes must stay distinct.
+- **Increase data variability:** Collect data from different environments, cameras, lighting and weather conditions, distances, and backgrounds. Use DEEPCRAFT™ Studio augmentation settings (scale, brightness, exposure) to increase image variability. Do not use flip left/right or flip up/down: curve signs and speed-limit values cannot be flipped and still match their class.
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
 - **Add negative data:** Include images without traffic signs, and common look-alikes (billboards, logos, buildings, vehicles), so the model stays robust against false positives.
 
