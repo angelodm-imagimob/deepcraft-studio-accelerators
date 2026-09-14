@@ -5,7 +5,7 @@
   "algorithm": "Object Detection",
   "sensors": ["Camera"],
   "domain": ["Vision"],
-  "application": ["Safety Monitoring", "Industrial IoT"],
+  "application": ["Agriculture and Farming", "Safety Monitoring", "Industrial IoT"],
   "use_case": ["Object Detection", "Animal Detection"],
   "kit": ["PSOC\u2122 Edge AI Kit", "PSOC\u2122 Edge Eval Kit"],
   "device": ["PSOC\u2122 Edge"],
