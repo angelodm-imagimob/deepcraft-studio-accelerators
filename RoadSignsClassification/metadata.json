@@ -1,5 +1,5 @@
 {
-  "title": "Road Sign Classification",
+  "title": "Road Signs Classification",
   "description": "Classify traffic signs from an image.",
   "long_description": "This project allows you to train an image classification model to identify 43 German traffic sign classes from the GTSRB dataset in an image/video. This model is suitable for ADAS and driver assistance applications.",
   "algorithm": "Image Classification",

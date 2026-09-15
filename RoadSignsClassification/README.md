@@ -4,7 +4,7 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 
 ## Overview - Use-Case
 
-The **Road Sign Image Classification** project builds an end-to-end system that identifies **43 German traffic sign classes** from camera or live video input, including speed limits, warning signs, prohibitory signs, and mandatory signs (GTSRB).
+The **Road Sign Image Classification** project builds an end-to-end system that identifies **43 German traffic sign classes** from camera or live video input, including speed limits, warning signs, prohibitory signs, and mandatory signs.
 
 The image classification model can be used in applications for
 
@@ -76,7 +76,7 @@ For selecting the most meaningful parameters for Data Augmentations it is import
 **Data source and commercial-use conditions:**
 
 - GTSRB (51,839 images): https://benchmark.ini.rub.de/gtsrb_dataset.html
-  - Standard 43-class German traffic sign recognition benchmark from the Institut für Neuroinformatik, Ruhr-Universität Bochum. Original GTSRB crops vary in size; in this project they are stored as 64×64 RGB PNGs.
+  - Standard 43-class German traffic sign recognition benchmark from the Institut für Neuroinformatik, Ruhr-Universität Bochum. The original GTSRB crops vary in size; in this project they are stored as 64×64 RGB PNGs.
   - Official terms: *“The data is free to use.”* The authors ask that you cite Stallkamp et al., IJCNN 2011. There is no Creative Commons (or other named) license, and no non-commercial restriction.
 
 ## Adding More Data
@@ -98,32 +98,28 @@ The recommended path to production for this project includes the following steps
 - **Do not use flip left/right or flip up/down.** You cannot flip signs with curves or with a speed value. A left/right flip turns `dangerous_curve_left` into `dangerous_curve_right` (and the same for keep-left/keep-right) and mirrors the digits on speed-limit signs. An up/down flip puts signs upside down and also distorts arrows and numbers. Either setting will train the model on labels that no longer match the image. Leave `fliplr` and `flipud` at 0.
 - **Watch directional and digit confusions.** Left/right variants and nearby speed limits (30 vs 50, 80 vs 100) are easy to mix; extra close-up examples from your camera reduce mix-ups that the original GTSRB crops cannot fix alone.
 - **Match augmentation to roadside variability.** Try different augmentation settings to increase the variability of the dataset, such as modest perspective/zoom to mimic viewing signs from different angles and distances, and brightness/contrast changes to cover different lighting conditions. Keep rotation small so pictograms stay readable. Do **not** use left/right or up/down flip.
-- **Try different advanced settings** such as optimizer or confidence threshold to make the model more or less sensitive. Missing a speed-limit sign may affect driver assistance; a false detection may show the wrong limit—set thresholds for the cost you care about.
-- **Add data from different lighting, weather, and driving conditions.** Collect from day, night, dawn, dusk, rain, and fog, and include various camera angles, motion blur, and partial occlusions to enhance classification accuracy in real driving scenarios.
+- **Try different advanced settings.** Such as optimizer or confidence threshold to make the model more or less sensitive. Missing a speed-limit sign may affect driver assistance; a false detection may show the wrong limit—set thresholds for the cost you care about.
+- **Add data from different lighting, weather, and driving conditions.** Collect new data from day, night, dawn, dusk, rain, and foggy conditions, and include various camera angles, motion blur, and partial occlusions to enhance classification accuracy in real driving scenarios.
 
-Some points to highlight:
-
-- **Increase data variability:** Collect data from different environments, cameras, lighting and weather conditions, distances, and backgrounds. Use DEEPCRAFT™ Studio augmentation settings (scale, brightness, exposure) to increase image variability. Do not use flip left/right or flip up/down: curve signs and speed-limit values cannot be flipped and still match their class.
-- **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
-- **Add negative data:** Include images without traffic signs, and common look-alikes (billboards, logos, buildings, vehicles), so the model stays robust against false positives.
 
 ## Attribution & Citation
 
 This project uses the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset:
 
+```bibtex
 @article{stallkamp2012gtsrb,
-  title = {Man vs. Computer: Benchmarking Machine Learning Algorithms for Traffic Sign Recognition},
-  author = {Stallkamp, Johannes and Schlipsing, Marc and Salmen, Jan and Igel, Christian},
-  journal = {Neural Networks},
-  volume = {32},
-  pages = {323--332},
-  year = {2012},
-  issn = {0893-6080},
-  doi = {10.1016/j.neunet.2012.02.016},
-  url = {https://doi.org/10.1016/j.neunet.2012.02.016},
-  publisher = {Elsevier}
+title = {Man vs. Computer: Benchmarking Machine Learning Algorithms for Traffic Sign Recognition},
+author = {Stallkamp, Johannes and Schlipsing, Marc and Salmen, Jan and Igel, Christian},
+journal = {Neural Networks},
+volume = {32},
+pages = {323--332},
+year = {2012},
+issn = {0893-6080},
+doi = {10.1016/j.neunet.2012.02.016},
+url = {https://doi.org/10.1016/j.neunet.2012.02.016},
+publisher = {Elsevier}
 }
-
+```
 Dataset home page: https://benchmark.ini.rub.de/
 
 ## Getting Started
