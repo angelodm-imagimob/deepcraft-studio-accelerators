@@ -1,30 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Imaginet version="2.0.0.0">
-  <Compound unit="e2e038a0-e281-4de4-a43c-355bd5afec8d">
-    <UiEvents />
+  <Compound unit="d419d86b-7b57-41d3-9a74-ab428f13a213">
     <Nodes>
-      <LabelListNode width="120" height="120" id="node_0" x="170" y="235.60000000000002">
-        <Label>up</Label>
-        <Label>down</Label>
-        <Label>left</Label>
-        <Label>right</Label>
-        <Label>off</Label>
-        <Label>on</Label>
-      </LabelListNode>
-      <UnitNode unit="Imaginet.Units.Io.ImagimobSerialCapture" enabled="False" id="node_1" x="383.5999999999999" y="772.4000000000001">
-        <StringArgument param="port">COM3</StringArgument>
-      </UnitNode>
-      <UnitNode unit="Imaginet.Units.Io.Microphone" id="node_2" x="333.20000000000016" y="593.9999999999999" />
-      <UnitNode unit="ImagimobStudio.Modules.DataTrack" id="node_3" name="Local Microphone Output Samples DataTrack" x="783.6000000000001" y="636.4000000000001" />
+      <DatasetNode id="node_0" x="1051.4616666666666" y="393.06" enabled="true" profiling="false" name="Dataset" RelativeDataPath="datasets/Main_1.dcdb" />
+      <UnitNode id="node_1" x="538.6316666666667" y="393.06" enabled="true" profiling="false" unit="Imaginet.Units.Io.Microphone" />
     </Nodes>
     <Connections>
       <Connection>
-        <Source node="node_2" param="data" />
-        <Target node="node_3" param="data" />
-      </Connection>
-      <Connection>
         <Source node="node_1" param="data" />
-        <Target node="node_3" param="data" />
+        <Target node="node_0" param="input_track_ae01ec16d0b8488d8d50fe264b312464" />
       </Connection>
     </Connections>
   </Compound>
