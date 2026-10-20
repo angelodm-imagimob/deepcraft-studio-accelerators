@@ -19,7 +19,7 @@ This project is for a screening demonstration, **not a diagnostic device**. It s
 
 - **Problem:** Real-time screening of premature beats on a single ECG lead (normal/background vs premature morphology)
 - **Machine learning method:** CNN binary classification (`unlabeled` vs `premature_beat`)
-- **Sensor and data:** Single-lead ECG voltage (PhysioNet BIDMC channel 0 at 250 Hz; millivolts from WFDB, then per-person z-score)
+- **Sensor and data:** Single-lead ECG (PhysioNet BIDMC channel 0 at 250 Hz; ADC counts read by WFDB, then per-person z-score)
 - **Relevance:** First-stage wearable or monitoring alarm after beat-aligned preprocessing; subtype diagnosis is left to a later stage or a clinician
 
 ### Why binary detection?
@@ -38,7 +38,7 @@ Normal beats use Studio's built-in `unlabeled` background class. In this project
 
 **`Models`** — Trained DEEPCRAFT™ models, predictions, and generated Edge code
 
-**`Resources`** — [`dataset_manifest.json`](Resources/dataset_manifest.json) (exact split membership and normalization statistics) and `Images/` (CM5 electrode diagram and heartbeat illustrations)
+**`Resources`** — [`dataset_manifest.json`](Resources/dataset_manifest.json) (exact split membership and normalization statistics) and `Images/` (CM5 electrode diagram, heartbeat illustrations, and a raw `chf07` strip)
 
 **`Tools`** — it contains scripts to rebuild dataset, on-device notes, and a preprocessor example [`ecg_preproc.h`](Tools/ecg_preproc.h) to adapt for firmware
 
@@ -46,7 +46,7 @@ Normal beats use Studio's built-in `unlabeled` background class. In this project
 
 The data used in this project is from a PhysioNet collection: all 15 recordings (`chf01`–`chf15`) of the [BIDMC Congestive Heart Failure Database v1.0.0](https://physionet.org/content/chfdb/). BIDMC is the Beth Israel Deaconess Medical Center, where the recordings were made; each one is about 20 hours of ECG from one patient with severe heart failure.
 
-An ECG (electrocardiogram) is a plain analog measurement: the voltage between electrodes on the skin, which rises and falls as the heart beats. Here it is sampled at **250 Hz** on two channels. The files use the PhysioNet **WFDB** (WaveForm DataBase) format, where a `.dat` file holds raw ADC counts and a `.hea` header gives the gain needed to convert them to **millivolts**. This project uses channel 0 only (the header name is `ECG1`). There is no other sensor.
+An ECG (electrocardiogram) is a plain analog measurement: the voltage between electrodes on the skin, which rises and falls as the heart beats. Here it is sampled at **250 Hz** on two channels. The files use the PhysioNet **WFDB** (WaveForm DataBase) format. A `.dat` file holds raw ADC counts. On these recordings the `.hea` header does not give a voltage gain, so WFDB uses its default of 200 counts per millivolt. The database page says the converter covers about ±10 mV. This project uses channel 0 only (the header name is `ECG1`). There is no other sensor.
 
 A third file per record, `.ecg`, lists the time of every heartbeat and a symbol for its type (normal, premature ventricular contraction, supraventricular, and so on). These annotations come from an automated detector, not from a clinician, so the labels in `Data/` inherit that detector's possible mistakes. Auditing or relabeling beats raises the achievable accuracy.
 
@@ -80,14 +80,51 @@ The line between the upper sternum and V5 crosses the heart, so a premature beat
 
 **Note** Each beat on this pair has a sharp middle peak, called the QRS, produced when the ventricles contract. The outline of that peak follows where the electrodes sit. This project uses `ECG1`. A small shift of a similar chest pair changes the outline only a little. A different direction or a flipped pair changes the trace itself.
 
+### Data insights: Baseline drift, noise bursts, downward peaks
+
+The raw recordings are long ambulatory traces. The line under the heartbeats moves up and down, and short stretches are noisy. [Chen, Hao, Rakthanmanon, Zakaria, Hu, and Keogh (2015)](https://doi.org/10.1007/s10618-014-0388-4) reported both on recording `chf07`. The strips in the image below are from the original file of that recording, channel `ECG1`, before the preparation steps in the next section.
+
+- **Baseline Drift** The top strip is 12 seconds at minute 66. The orange line is a 1-second average. That average rises and then falls by much more than the height of a heartbeat. Breathing, small body movements, and a loose electrode can all shift the line this way. At the crest, near second 6, the trace reaches 554 counts. That is the highest value stored anywhere in this 20-hour file. For about half a second the dips shrink, because the recorder has no room left above that line. When the drift falls, the dips return. On every other recording the line also moves by more than one spike. How often that happens is in the table. `chf15` also reaches the top of its file, for about 0.8 seconds. See the table below for more details.
+
+- **Noise Bursts** The bottom strip is 8 seconds at minute 676. The shaded part is about 4 seconds of fast noise. The heartbeats are hard to see there. After the shade ends, the spikes are clear again. In this recording those bursts are rare next to the 20 hours, and they come in separate stretches. The longest one found lasts about 11 seconds. On the other recordings the longest burst is about 6 seconds, and four recordings have no noise burst. See the table below for more details.
+
+- **Downward Peaks** The sharp middle of a heartbeat can point down. In `chf07` that is the usual shape on `ECG1`: the dips in both strips are the heartbeats, and almost every normal beat points down. Across the other recordings, the share of normal beats that point down ranges from nearly all of them to nearly none. In several recordings one direction holds for a long stretch, then changes. The table counts normal beats. Premature beats can point down as well. On `chf02`, almost every premature beat points up. See the table below for more details.
+
+![Two strips from raw chf07, channel ECG1. Top: 12 seconds at minute 66, with baseline drift drawn as a 1-second average. The crest reaches the highest value stored in the file and the dips shrink. Bottom: 8 seconds at minute 676. The shaded 4 seconds are a noise burst. The spikes are clear again after it.](Resources/Images/chf07_drift_and_noise.png)
+
+The table below lists baseline drift, noise bursts, and downward peaks for all patients: `chf01`–`chf15`. 
+- Downward peaks column gives the share of normal beats that point down.
+- In every recording the line under the beats moves by more than one spike. A drift entry is how often that happens, in stretches of 10 seconds, and it notes when the line reaches the top of the file which could lead to signal saturation.
+- A noise entry is how often a burst occurs and the length of the longest one. None means there is no burst.
+
+| Recording | Downward peaks (frequency in normal beats; longest stretch) | Drift and saturation (frequency in 10 s stretches; saturation time) | Noise bursts (frequency; longest burst) |
+|---|---|---|---|
+| `chf01` | 1 in 4; for 2.4 h | 1 in 9 | 1 every 5 min; up to 4 s |
+| `chf02` | Almost all | 1 in 4 | None |
+| `chf03` | Almost all | 1 in 20 | 1 every 2 h; up to 2 s |
+| `chf04` | 2 in 5; for 1 h | 1 in 20 | 1 every 3 h; up to 2 s |
+| `chf05` | 1 in 20 | 1 in 12 | 1 every 50 min; up to 6 s |
+| `chf06` | 1 in 300 | 1 in 125 | 1 every 7 h; up to 1 s |
+| `chf07` | Almost all | 1 in 5; saturation for 0.5 s | 1 every 30 min; up to 11 s |
+| `chf08` | Almost all | 1 in 40 | 1 every 30 min; up to 2 s |
+| `chf09` | About half; up to 25 min | 1 in 4 | None |
+| `chf10` | 5 in 6; up for 1.5 h | 1 in 12 | 1 every 50 min; up to 2 s |
+| `chf11` | About half; up to 1 h | 1 in 40 | None |
+| `chf12` | About half; up to 50 min | 1 in 7 | 1 every 75 min; up to 4 s |
+| `chf13` | 3 in 4 | 1 in 8 | 1 every 3 h; up to 1 s |
+| `chf14` | About half; up to 30 min | 1 in 7 | None |
+| `chf15` | About half; for 2.3 h | 1 in 14; saturation for 0.8 s | 1 every 2.5 h; up to 1 s |
+
+The effect of downward peaks, baseline drift, noise bursts, and saturation on the model is mixed. Downward spikes and moving baselines add realistic variation. Training on that variation can make the model more robust to similar changes on new data. Noise and saturation are harmful when they hide or change the heartbeat shape, because the model then has less useful information. Those moments cover little of a 20-hour recording. `chf07` and `chf15`, the two test recordings, are the ones that saturate.
+
 ### Data preparation and preprocessing
 
 In this project, the raw recordings are prepared and preprocessed before using them as input to the neural network/model. Use the Python scripts in the `Tools` folder (`step04_prepare_dataset.py` runs the full pipeline; see `Tools/README.md`) for data preparation and preprocessing. The steps below show the details of this pipeline:
 
-1. Convert `.dat` ADC counts to millivolts with the `.hea` gain (WFDB).
+1. Read the `.dat` ADC counts. The `.hea` gain is 0, so WFDB converts them with its default of 200 counts per millivolt.
 2. Keep **channel 0** only.
 3. Read `.ecg` beat times and symbols; map each beat to `unlabeled` or `premature_beat` (or drop it if the symbol is unused).
-4. Cut a **mid-RR** window around that beat: from the midpoint between the previous R-peak and this one, to the midpoint between this R-peak and the next.
+4. Cut a **mid-RR** window following the labeled beat times, from the midpoint before this labeled beat to the midpoint after it. An upward spike and a downward spike are cut the same way.
 5. **Linearly interpolate** that variable-length cut to **140 samples**.
 6. Concatenate up to 300 same-person, same-class beats into one Studio session.
 7. **Z-score** every sample on that recording only (subtract the person's mean, divide by their standard deviation).
@@ -96,9 +133,9 @@ In this project, the raw recordings are prepared and preprocessed before using t
 
 The drawing below shows why the recordings are prepared this way. The network is trained to separate heartbeats by shape. In this project, that shape is how a premature heartbeat is detected. Each window is one heartbeat. It runs from halfway between the previous R-peak and this one to halfway between this R-peak and the next ([Baali, Akmeliawati, and Salami, 2013](https://doi.org/10.5220/0004242101640170)). That window is then resampled to 140 samples. A short heartbeat and a long heartbeat then have the same length, so heart rate does not change the input. The shape of the spike remains. Heartbeats prepared this way, at this length, were first used on a 5,000-beat excerpt of recording `chf07` by [Chen, Hao, Rakthanmanon, Zakaria, Hu, and Keogh (2015)](https://doi.org/10.1007/s10618-014-0388-4). That excerpt is published in the [UCR Time Series Classification Archive (2018)](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/). This project uses the same preparation on all 15 recordings.
 
-On the raw strip the heartbeats have different lengths, because the heart rate changes from one heartbeat to the next. The third heartbeat arrives early and has a wider spike. After resampling, each heartbeat is 140 samples wide. The wider spike is still visible. [Xu, Mak, and Cheung (2019)](https://doi.org/10.1109/JBHI.2018.2871510) use the same one-heartbeat window for a neural network. The R-peak fixes the position of the heartbeat in the window. The network is called once for each heartbeat on its own.
+On the raw strip the heartbeats have different lengths, because the heart rate changes from one heartbeat to the next. The third heartbeat arrives early and has a wider spike. After resampling, each heartbeat is 140 samples wide. The wider spike is still visible. [Xu, Mak, and Cheung (2019)](https://doi.org/10.1109/JBHI.2018.2871510) use the same one-heartbeat window for a neural network. The labeled beat time fixes the position of the heartbeat in the window. The network is called once for each heartbeat on its own.
 
-The preparation removes timing. An early heartbeat and a late heartbeat both have 140 samples. The network does not receive the time between heartbeats. With this approach, a premature heartbeat with a spike close to a normal spike is harder to classify. The cut needs an R-peak on both sides. The first and last heartbeat of a recording are left out. The drawing illustrates these steps.
+The preparation removes timing. An early heartbeat and a late heartbeat both have 140 samples. The network does not receive the time between heartbeats. With this approach, a premature heartbeat with a spike close to a normal spike is harder to classify. The cut needs a labeled beat on both sides. The first and last heartbeat of a recording are left out. The drawing illustrates these steps.
 
 ![Before and after the heartbeat cut. The top trace is an illustration of one recording: heartbeats of different lengths, dashed lines at the midpoints between R-peaks, and an early beat marked in orange. The four plots below are those same windows after each is resampled to 140 samples.](Resources/Images/beat_preparation.png)
 
@@ -171,7 +208,7 @@ Each person's selected samples are therefore standardized **on that recording on
 z = (sample - recording_mean) / recording_standard_deviation
 ```
 
-Beat shape is kept; electrode gain, baseline, and overall peak size are not. The exact means and standard deviations are recorded in `Resources/dataset_manifest.json`.
+Beat shape is kept, including a downward spike. One mean and one standard deviation for the whole recording remove the recording's average level and scale. They leave a baseline that moves during the recording, so a beat keeps the height it had when it was cut. The exact means and standard deviations are recorded in `Resources/dataset_manifest.json`.
 
 Training used **that person's** mean and std. A product must estimate the **same two numbers from the live patient**. Applying the 15-file global mean/std, or using raw millivolts, would reintroduce the person-scale cue the training step removed.
 
@@ -190,7 +227,7 @@ Do **not** feed **these** weights a sliding 140-sample slice of the live ECG, an
 
 You can **experiment with a sliding window** instead, to skip peak detection, the mid-RR cut, and interpolation. Those three steps can introduce errors (missed or extra R-peaks, wrong interval bounds, resample distortion). A slide on raw 250 Hz avoids them, but it is a different input. That experiment needs new labels and a retrain. Do not drop detect/cut/interp on the current model and expect the same scores.
 
-Use `Tools/ecg_preproc.h` as an **example** starting point for the beat-aligned path and adapt it to your firmware and use case. Details are in `Tools/README.md`.
+Use `Tools/ecg_preproc.h` as an **example** starting point for the beat-aligned path and adapt it to your firmware and use case. Details are in `Tools/README.md`. The detector in that file marks a beat only after the high-passed signal has risen above 0.4 mV and then starts to fall. A spike that points down is left unmarked. The beats in `Data/` include both directions, because the cut follows the `.ecg` labels.
 
 ### Person-based data split
 
