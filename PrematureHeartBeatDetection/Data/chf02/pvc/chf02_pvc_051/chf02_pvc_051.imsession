@@ -18,33 +18,8 @@
           </Axis>
         </Shape>
       </Track>
-      <Track name="conv1d-large-packed-v5zbinC0" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\..\..\Models\conv1d-large-packed-v5zbinC\predictions\sessions\chf02_pvc_051\predictions_conv1d-large-packed-v5zbinC\conv1d-large-packed-v5zbinC0.data</PayloadFile>
-        <Offset unit="seconds">5.5600000000E-001</Offset>
-        <Shape />
-      </Track>
-      <Track name="conv1d-medium-balanced-00" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\..\..\Models\conv1d-medium-balanced-0\predictions\sessions\chf02_pvc_051\predictions_conv1d-medium-balanced-0\conv1d-medium-balanced-00.data</PayloadFile>
-        <Offset unit="seconds">5.5600000000E-001</Offset>
-        <Shape />
-      </Track>
       <Track name="conv1d-medium-balanced-10" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
         <PayloadFile>..\..\..\..\Models\conv1d-medium-balanced-1\predictions\sessions\chf02_pvc_051\predictions_conv1d-medium-balanced-1\conv1d-medium-balanced-10.data</PayloadFile>
-        <Offset unit="seconds">5.5600000000E-001</Offset>
-        <Shape />
-      </Track>
-      <Track name="conv1d-medium-balanced-20" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\..\..\Models\conv1d-medium-balanced-2\predictions\sessions\chf02_pvc_051\predictions_conv1d-medium-balanced-2\conv1d-medium-balanced-20.data</PayloadFile>
-        <Offset unit="seconds">5.5600000000E-001</Offset>
-        <Shape />
-      </Track>
-      <Track name="conv1d-medium-balanced-30" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\..\..\Models\conv1d-medium-balanced-3\predictions\sessions\chf02_pvc_051\predictions_conv1d-medium-balanced-3\conv1d-medium-balanced-30.data</PayloadFile>
-        <Offset unit="seconds">5.5600000000E-001</Offset>
-        <Shape />
-      </Track>
-      <Track name="conv1d-medium-packed-v5zbinC0" type="datacsv" timecoded="TimestampBeginDuration" isLabelTrack="False">
-        <PayloadFile>..\..\..\..\Models\conv1d-medium-packed-v5zbinC\predictions\sessions\chf02_pvc_051\predictions_conv1d-medium-packed-v5zbinC\conv1d-medium-packed-v5zbinC0.data</PayloadFile>
         <Offset unit="seconds">5.5600000000E-001</Offset>
         <Shape />
       </Track>
