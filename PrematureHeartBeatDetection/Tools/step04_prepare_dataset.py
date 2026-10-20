@@ -436,6 +436,9 @@ def update_project(sessions: list[PackedSession], label_mode: str) -> None:
             data_path = folder / "ECG.data"
             label_path = folder / LABEL_FILE
             session_path = folder / f"{packed.name}.imsession"
+            # Empty normal label files use Studio's built-in unlabeled class.
+            # They are valid sessions, so do not preserve stale label warnings.
+            element.set("tags", "None")
             element.set("labelTrack", LABEL_TRACK)
             element.find("DataFile").text = f"/Data/{relative.as_posix()}/ECG.data"
             element.find("DataFile").set("modified", str(filetime_ticks(data_path)))
