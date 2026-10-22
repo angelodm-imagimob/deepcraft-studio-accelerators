@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagimobStudio version="0.9">
+  <Timeline id="73f16c43-24af-48fa-99f8-8eedc074f654">
+    <Tracks>
+      <Track name="Vehicle Data" type="datacsv" isLabelTrack="False">
+        <PayloadFile>vehicle.data</PayloadFile>
+        <Shape>
+          <Axis name="Channel" size="7">
+            <Label index="0">Speed_kmh</Label>
+            <Label index="1">PackVoltage_V</Label>
+            <Label index="2">PackCurrent_A</Label>
+            <Label index="3">Hvac_kW</Label>
+            <Label index="4">Ambient_C</Label>
+            <Label index="5">Elevation_m</Label>
+            <Label index="6">SoC_pct</Label>
+          </Axis>
+        </Shape>
+      </Track>
+      <Track name="consumption_kwh_per_km" type="datacsv" isLabelTrack="True">
+        <PayloadFile>consumption_kwh_per_km.data</PayloadFile>
+        <Shape>
+          <Axis name="Channel" size="1">
+            <Label index="0">Consumption_kWh_per_km</Label>
+          </Axis>
+        </Shape>
+      </Track>
+    </Tracks>
+  </Timeline>
+</ImagimobStudio>
