@@ -8,7 +8,7 @@ python -m pip install -r requirements.txt
 python step04_prepare_dataset.py
 ```
 
-The main script `step04_prepare_dataset.py` rebuilds the dataset in the `Data`folder and refreshes the session entries in `PrematureHeartBeatDetection.improj` and `Resources/dataset_manifest.json`. The scripts and the manifest define the output, so this command reproduces the shipped sessions and their train, validation, and test split.
+The main script `step04_prepare_dataset.py` rebuilds the dataset in the `Data` folder and refreshes the session entries in `PrematureHeartBeatDetection.improj` and `Resources/dataset_manifest.json`. The scripts and the manifest define the output, so this command reproduces the shipped sessions and their train, validation, and test split.
 
 ## Scripts
 
