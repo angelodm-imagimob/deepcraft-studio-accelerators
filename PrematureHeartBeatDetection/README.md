@@ -2,6 +2,8 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
+> **Medical disclaimer:** This project and any model trained with it are for demonstration and research only. They are not medically approved or clinically validated. Do not use them for diagnosis, treatment, emergency monitoring, or patient-care decisions.
+
 ## Overview - Use-Case
 
 The **Premature Heartbeat Detection** accelerator is a binary time-series classifier for a single ECG lead which can detect the following classes:
@@ -82,7 +84,7 @@ The line between the upper sternum and V5 crosses the heart, so a premature beat
 
 ### Data insights: Baseline drift, noise bursts, downward peaks
 
-The raw recordings are long ambulatory traces. The line under the heartbeats moves up and down, and short stretches are noisy. [Chen, Hao, Rakthanmanon, Zakaria, Hu, and Keogh (2015)](https://doi.org/10.1007/s10618-014-0388-4) reported both on recording `chf07`. The strips in the image below are from the original file of that recording, channel `ECG1`, before the preparation steps in the next section.
+The raw recordings are long ambulatory traces. Baseline drift, noise bursts, and saturation occur in separate portions of a recording. They do not affect every beat. Downward peaks are different: they can remain the usual shape for long portions of a recording. [Chen, Hao, Rakthanmanon, Zakaria, Hu, and Keogh (2015)](https://doi.org/10.1007/s10618-014-0388-4) reported baseline drift and noise on recording `chf07`. The strips in the image below are from the original file of that recording, channel `ECG1`, before the preparation steps in the next section.
 
 - **Baseline Drift** The top strip is 12 seconds at minute 66. The orange line is a 1-second average. That average rises and then falls by much more than the height of a heartbeat. Breathing, small body movements, and a loose electrode can all shift the line this way. At the crest, near second 6, the trace reaches 554 counts. That is the highest value stored anywhere in this 20-hour file. For about half a second the dips shrink, because the recorder has no room left above that line. When the drift falls, the dips return. On every other recording the line also moves by more than one spike. How often that happens is in the table. `chf15` also reaches the top of its file, for about 0.8 seconds. See the table below for more details.
 
@@ -126,8 +128,10 @@ In this project, the raw recordings are prepared and preprocessed before using t
 3. Read `.ecg` beat times and symbols; map each beat to `unlabeled` or `premature_beat` (or drop it if the symbol is unused).
 4. Cut a **mid-RR** window following the labeled beat times, from the midpoint before this labeled beat to the midpoint after it. An upward spike and a downward spike are cut the same way.
 5. **Linearly interpolate** that variable-length cut to **140 samples**.
-6. Concatenate up to 300 same-person, same-class beats into one Studio session.
+6. Concatenate up to 300 same-person, same-source-class beats into one Studio session.
 7. **Z-score** every sample on that recording only (subtract the person's mean, divide by their standard deviation).
+
+In an original recording, premature beats occur from time to time among normal beats. The pipeline takes each labeled premature beat from its original position, shuffles the beats, and places up to 300 beats from the same person and source class back-to-back. Normal beats are packed separately in the same way. The result is one packed Studio session, not a continuous part of the original recording. Adjacent beats may come from different times in the original 20-hour recording. Their baseline levels can differ, so the signal can jump at the joins and look like an irregular step wave in Studio. These jumps come from packing the beats; they are not continuous changes in the original ECG. The timing of premature beats, drift, noise, and saturation is therefore not preserved in `Data/`.
 
 #### Separating heartbeats by shape
 
