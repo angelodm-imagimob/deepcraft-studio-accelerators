@@ -2,7 +2,7 @@
 
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
-> **Medical disclaimer:** This project and any model trained with it are for demonstration and research only. They are not medically approved or clinically validated. Do not use them for diagnosis, treatment, emergency monitoring, or patient-care decisions.
+> **Medical disclaimer:** This project, its associated components and any model trained with it are not medically certified or clinically validated by any medical regulatory authority.
 
 ## Overview - Use-Case
 
