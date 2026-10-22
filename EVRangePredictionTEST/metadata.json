@@ -1,0 +1,20 @@
+{
+  "title": "EV Range Prediction",
+  "description": "Predict EV energy consumption (kWh/km) from vehicle telemetry, and turn it into remaining range.",
+  "long_description": "This project trains a DEEPCRAFT Studio regression model to predict the energy an EV battery will deliver per kilometre over the next three minutes, using pack voltage/current, speed, HVAC load, ambient temperature, elevation, and state of charge. The target is measured directly from logged voltage, current, and speed rather than derived from an assumed battery capacity, so remaining range follows as a single division by the pack you ship. Starter sessions combine commercially licensed BMW i3 trip logs (CC BY 4.0) with Vehicle Energy Dataset Leaf/PHEV rows (Apache 2.0). Suitable for onboard range estimation, fleet energy monitoring, and PSOC Edge current/voltage time-series demos.",
+  "algorithm": "Regression",
+  "sensors": ["Current", "Voltage"],
+  "domain": ["Electrical Signals"],
+  "application": ["Automotive", "Battery Management System (BMS)"],
+  "use_case": ["Range Estimation"],
+  "kit": ["PSOC\u2122 6 AI Kit", "PSOC\u2122 Edge AI Kit"],
+  "device": ["PSOC\u2122 6", "PSOC\u2122 Edge"],
+  "type": ["Model Development"],
+  "workflow": ["ML Development"],
+  "thumbnail_image_id": "industrial_setting_safety.webp",
+  "main_image_id": "industrial_setting_safety.webp",
+  "brand_image_id": "deepcraft.webp",
+  "brand_url": "https://www.infineon.com/design-resources/embedded-software/deepcraft-edge-ai-solutions",
+  "videos": [{"title": "Video 1", "description": "This is a video", "link": "https://www.youtube.com/watch?v=a2tDOYkFCYo"}],
+  "links": [{"label": "Download", "url": "https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio", "heading": "Access Project via DEEPCRAFT\u2122 Studio", "sub-heading": "Download and install DEEPCRAFT\u2122 Studio to fully access this project and start developing your Edge AI product"}, {"label": "GitHub", "url": "https://github.com/Infineon/deepcraft-studio-accelerators/tree/main/EVRangePredictionTEST", "heading": "Project Repository", "sub-heading": "Get more details about accelerator projects"}]
+}
