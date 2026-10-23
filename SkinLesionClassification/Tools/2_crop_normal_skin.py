@@ -1,9 +1,12 @@
-"""Crop clear skin from every split and write SkinLesionClassification.improj.
+"""Add the Normal_Skin group to SkinLesionClassification.improj.
 
-The same photos and the same constants produce the same crops. A crop stays in
-the split of the photo it was cut from. Run:
+Run this after 1_organize_diagnosis_folders.py, from the Tools folder:
 
     python 2_crop_normal_skin.py
+
+The same photos and the same constants produce the same crops. A crop stays in
+the split of the photo it was cut from and is labeled Normal_Skin, a frame
+with no lesion. The Suspicious and Benign sessions already in the project stay.
 
 A crop is kept only when all of the following hold:
 

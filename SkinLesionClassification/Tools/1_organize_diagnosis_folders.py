@@ -1,12 +1,19 @@
-"""Rebuild SuspiciousSkinLesionClassification from the published datasets.
+"""Build the Skin Lesion Classification lesion data from the published datasets.
 
 PAD-UFES-20 photos come from the Hugging Face mirror of the Mendeley release.
 FLUO-SC clinical photos come from the CLI zip (melanoma and squamous cell only).
 Hospital Italiano clinical photos come from ISIC collection 251. Dermoscopic
-photos are left out, and only the suspicious diagnoses are kept.
+photos are left out. The extra clinical photos are the diagnoses grouped as
+Suspicious: melanoma, basal cell carcinoma, squamous cell carcinoma, and
+actinic keratosis.
 
-The script writes Data/ and SkinLesionClassification.improj from those
-downloads. Re-running it stops when those outputs already exist.
+Each diagnosis is grouped into Suspicious or Benign. The script writes Data/
+and SkinLesionClassification.improj. Run it from the Tools folder:
+
+    python 1_organize_diagnosis_folders.py
+
+Re-running it stops when those outputs already exist. 2_crop_normal_skin.py
+then adds the Normal_Skin group to the same project file.
 """
 
 from __future__ import annotations
