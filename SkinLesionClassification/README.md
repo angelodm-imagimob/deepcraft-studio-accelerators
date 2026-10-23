@@ -3,26 +3,30 @@
 This project is designed to work exclusively with DEEPCRAFT™ Studio. Download it from [here](https://softwaretools.infineon.com/assets/com.ifx.tb.tool.deepcraftstudio)
 
 > **Medical disclaimer:** This project, its associated components and any model trained with it are not medically certified or clinically validated by any medical regulatory authority.
+>
+> **Content disclaimer:** The dataset contains clinical photographs of skin lesions. These images can be distressing for sensitive people.
+
 
 ## Overview - Use-Case
 
-The **Skin Lesion Classification** project builds a YOLO-based model that classifies a camera image or live video as **Suspicious**, **Benign**, or **Normal_Skin**, as a first screening that groups each image before further review. **Normal_Skin** is a frame with no lesion.
+The **Skin Lesion Classification** project builds a YOLO-based model that classifies a camera image or live video as **Suspicious**, **Benign**, or **Normal_Skin**, to be used as a tool to group each image before further review. **Normal_Skin** is a frame with no lesion.
 
-This first screening helps prioritize images for further review. **Suspicious** means the lesion should be looked at more closely. It groups melanoma, basal cell carcinoma, squamous cell carcinoma, and actinic keratosis. **Benign** groups nevus and seborrheic keratosis. Actinic keratosis is in Suspicious because it is a lesion that should be examined. The cancers in the PAD-UFES-20 dataset are biopsy-proven.
+This grouping helps prioritize images for further review. **Suspicious** means the lesion should be looked at more closely. It groups melanoma, basal cell carcinoma, squamous cell carcinoma, and actinic keratosis. **Benign** groups nevus and seborrheic keratosis. Actinic keratosis is in Suspicious because it is a lesion that should be examined. The cancers in the PAD-UFES-20 dataset are biopsy-proven.
 
 The image classification model is YOLO-based and it can be used in applications for
 
-- **Edge devices:** Run the first screening on an MCU board such as PSOC™ Edge and label each camera image Suspicious, Benign, or Normal_Skin
-- **Wearables:** Screen a skin view using a wearable camera and return Suspicious, Benign, or Normal_Skin on the device
-- **Clinic intake:** Mark images Suspicious, Benign, or Normal_Skin so the Suspicious ones can be reviewed first
+- **Clinical review:** Group a set of close-up skin images so a doctor checks the Suspicious ones first, then the rest of the list
+- **Edge devices:** Run that grouping on an MCU board such as PSOC™ Edge. Aim the camera at one close-up of skin, so the lesion or the bare skin fills the frame, and label the image Suspicious, Benign, or Normal_Skin
+
+Each image is taken with the camera aimed at the skin, close enough for one spot to fill the frame. That is the view in the training photos.
 
 Users can further expand this project by training their own models, importing new data, and evaluating performance using the provided tools.
 
-This Accelerator allows you to build a model for first screening. The model uses the dataset diagnosis, grouped into Suspicious or Benign, and uses Normal_Skin for a frame with no lesion. It does not provide a medical diagnosis.
+This Accelerator allows you to build a model that assists a first review. The model uses the dataset diagnosis, grouped into Suspicious or Benign, and uses Normal_Skin for a frame with no lesion. It does not provide a medical diagnosis.
 
 - **Machine learning method:** YOLO-based image classification trained in DEEPCRAFT™ Studio
 - **Sensor and data type:** RGB camera or live video input (image data)
-- **Why it matters:** Enables a first on-device screening that groups each camera image into Suspicious, Benign, or Normal_Skin, provided the model is trained on images that match the deployment camera.
+- **Why it matters:** Lets a clinician start with the images marked Suspicious and then go through the full list, on an MCU board such as PSOC™ Edge, provided the model is trained on images that match the deployment camera.
 
 ## Features
 
@@ -38,7 +42,7 @@ This Accelerator allows you to build a model for first screening. The model uses
 
 - **`Resources`** - Folder containing supporting project files, including `rename_mapping.csv`, which maps each lesion session to its issue folder, original filename when one exists, label, split, and source dataset. `normal_skin_crops.csv` records each Normal_Skin crop, the photo it was cut from, and the split.
 
-- **`Tools`** - `1_organize_diagnosis_folders.py` rebuilds `Data` and `SkinLesionClassification.improj` from PAD-UFES-20, FLUO-SC, and Hospital Italiano de Buenos Aires. `2_crop_normal_skin.py` adds the Normal_Skin patches from all three splits to that project file.
+- **`Tools`** - `1_organize_diagnosis_folders.py` builds `Data` and `SkinLesionClassification.improj` from PAD-UFES-20, FLUO-SC, and Hospital Italiano de Buenos Aires, with each diagnosis grouped into Suspicious or Benign. `2_crop_normal_skin.py` adds the Normal_Skin group from all three splits to that same project file.
 
 ## Steps to get started: Model Training and Evaluation
 
@@ -119,27 +123,27 @@ The recommended path to production for this project includes the following steps
 - **Differentiate the specific issues when you have enough examples.** `SkinLesionClassification.improj` outputs `Suspicious`, `Benign`, and `Normal_Skin`. The folders already separate melanoma, basal cell carcinoma, squamous cell carcinoma, actinic keratosis, nevus, and seborrheic keratosis, so a later model can name those issues. That needs more data. Melanoma has 127 images in this project and 10 in the unseen test set. Squamous cell carcinoma has 316. Basal cell carcinoma has 948 and actinic keratosis has 747. Nevus has 244 and seborrheic keratosis has 235. Melanoma and squamous cell carcinoma are too small for a stable six-way decision on new patients. More views of the images already here do not replace new patients.
 - **Match the camera.** Train and test on the same kind of view the board will see. A wide view of a face, or a dermoscope image, is a different problem from one lesion filling the frame.
 - **Keep new patients out of the training split.** Several images often belong to one person.
-- **Prefer a suspicious call over a missed suspicious lesion.** Missing a lesion that should be seen is the costly error. A benign lesion called suspicious is the accepted false alarm for this screening use.
+- **Prefer a suspicious call over a missed suspicious lesion.** Missing a lesion that should be seen is the costly error. A benign lesion called suspicious is the accepted false alarm for this grouping.
 
 Some points to highlight:
 
 - **Increase data variability:** Collect data from different environments, cameras, lighting conditions, distances, and backgrounds. Use DEEPCRAFT™ Studio augmentation settings (flip, scale, brightness, exposure) to increase image variability for vision models.
 - **Keep test data independent:** Make sure the test set is not used in train or validation and reflects scenarios where the model must generalize.
-- **Do not ship this as a diagnosis.** A miss or a false call on a real patient is not something this model is built to decide.
+- **Use the model as an assistant for review.** It orders the list so Suspicious images can be checked first. A clinician still reviews the images. A miss or a false call on a real patient is not something this model is built to decide.
 
 ## Attributions & Citations
 
 ```bibtex
 @misc{pad_ufes_20,
-  title = { PAD-UFES-20: a skin lesion dataset composed of patient data and clinical images collected from smartphones },
-  type = { Open Source Dataset },
-  author = { Pacheco, Andre G. C. and others },
-  howpublished = { \url{ https://doi.org/10.17632/zr7vgbcyr2.1 } },
-  url = { https://data.mendeley.com/datasets/zr7vgbcyr2/1 },
-  journal = { Data in Brief },
-  publisher = { Mendeley Data },
-  year = { 2020 },
-  month = { aug },
+title = { PAD-UFES-20: a skin lesion dataset composed of patient data and clinical images collected from smartphones },
+type = { Open Source Dataset },
+author = { Pacheco, Andre G. C. and others },
+howpublished = { \url{ https://doi.org/10.17632/zr7vgbcyr2.1 } },
+url = { https://data.mendeley.com/datasets/zr7vgbcyr2/1 },
+journal = { Data in Brief },
+publisher = { Mendeley Data },
+year = { 2020 },
+month = { aug },
   note = { visited on 2026-10-13 },
 }
 ```
