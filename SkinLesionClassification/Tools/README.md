@@ -14,7 +14,7 @@ Requires Python packages `Pillow` and `requests`. The script stops when `Data/` 
 
 ## 2. Normal_Skin data: `2_crop_normal_skin.py`
 
-Adds the Normal_Skin group to the project from step 1. It cuts one square of clear skin from each selected lesion photo and labels it `Normal_Skin`. The crop stays in the split of the source photo: 300 training, 68 validation, and 78 test when that many clear patches exist. It writes the images to `Data/Normal_Skin/`, the list to `Resources/normal_skin_crops.csv`, and the Normal_Skin label to `SkinLesionClassification.improj`.
+Adds the Normal_Skin group to the project from step 1. It cuts one square of clear skin from each selected lesion photo and labels it `Normal_Skin`. The crop stays in the split of the source photo. The targets are 300 training, 80 validation, and 78 test. Validation keeps 68 because only 68 photos have a clear enough patch. It writes the images to `Data/Normal_Skin/`, the list to `Resources/normal_skin_crops.csv`, and the Normal_Skin label to `SkinLesionClassification.improj`.
 
 ```text
 python 2_crop_normal_skin.py

@@ -16,9 +16,10 @@ A crop is kept only when all of the following hold:
 - No quarter of the patch is much darker or redder than the rest.
 - The patch is calmer than the center of the photo.
 
-At most two photos are taken from the same PAD-UFES-20 patient. Training keeps
-the 300 patches closest to ordinary skin texture. Validation and test keep the
-same share of their photos: 80 and 78 when that many clear patches exist.
+The script starts with at most two photos from the same PAD-UFES-20 patient.
+If that is not enough to reach the target, the cap rises to 3 and then 4.
+Training keeps 300 patches. Validation and test aim for 80 and 78 and can
+stop short when fewer photos have a clear enough patch. Validation keeps 68.
 """
 
 from __future__ import annotations
