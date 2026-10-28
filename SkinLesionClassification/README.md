@@ -6,27 +6,24 @@ This project is designed to work exclusively with DEEPCRAFT™ Studio. Download 
 >
 > **Content disclaimer:** The dataset contains clinical photographs of skin lesions. These images can be distressing for sensitive people.
 
-
 ## Overview - Use-Case
 
-The **Skin Lesion Classification** project builds a YOLO-based model that classifies a camera image or live video as **Suspicious**, **Benign**, or **Normal_Skin**, to be used as a tool to group each image before further review. **Normal_Skin** is a frame with no lesion.
+The **Skin Lesion Classification** project allows you to build a YOLO-based model that classifies a camera image or live video as **Suspicious**, **Benign**, or **Normal_Skin**, to be used as a tool to group each image before further review. **Normal_Skin** is a frame with no lesion. The model does not provide a medical diagnosis.
 
-This grouping helps prioritize images for further review. **Suspicious** means the lesion should be looked at more closely. It groups melanoma, basal cell carcinoma, squamous cell carcinoma, and actinic keratosis. **Benign** groups nevus and seborrheic keratosis. Actinic keratosis is in Suspicious because it is a lesion that should be examined. The cancers in the PAD-UFES-20 dataset are biopsy-proven.
+This grouping helps to prioritize images for further review. **Suspicious** means the lesion should be looked at more closely. It groups melanoma, basal cell carcinoma, squamous cell carcinoma, and actinic keratosis. **Benign** groups nevus and seborrheic keratosis. Actinic keratosis is in Suspicious because it is a lesion that should be examined. The cancers in the PAD-UFES-20 dataset are biopsy-proven.
 
 The image classification model is YOLO-based and it can be used in applications for
 
 - **Clinical review:** Group a set of close-up skin images so a doctor checks the Suspicious ones first, then the rest of the list
-- **Edge devices:** Run that grouping on an MCU board such as PSOC™ Edge. Aim the camera at one close-up of skin, so the lesion or the bare skin fills the frame, and label the image Suspicious, Benign, or Normal_Skin
+- **Edge devices:** Run that grouping tool on an MCU board such as PSOC™ Edge. Aim the camera at one close-up of skin, so the lesion or the bare skin fills the frame, and get the image labeled as Suspicious, Benign, or Normal_Skin
 
 Each image is taken with the camera aimed at the skin, close enough for one spot to fill the frame. That is the view in the training photos.
 
 Users can further expand this project by training their own models, importing new data, and evaluating performance using the provided tools.
 
-This Accelerator allows you to build a model that assists a first review. The model uses the dataset diagnosis, grouped into Suspicious or Benign, and uses Normal_Skin for a frame with no lesion. It does not provide a medical diagnosis.
-
 - **Machine learning method:** YOLO-based image classification trained in DEEPCRAFT™ Studio
 - **Sensor and data type:** RGB camera or live video input (image data)
-- **Why it matters:** Lets a clinician start with the images marked Suspicious and then go through the full list, on an MCU board such as PSOC™ Edge, provided the model is trained on images that match the deployment camera.
+- **Why it matters:** It lets a clinician start with the images marked Suspicious and then go through the full list, on an MCU board such as PSOC™ Edge, provided the model is trained on images that match the deployment camera.
 
 ## Features
 
@@ -98,18 +95,18 @@ For selecting the most meaningful parameters for Data Augmentations it is import
 
 **Data sources and commercial-use conditions:**
 
-- `pad_ufes` (2,298 images, CC BY 4.0): https://data.mendeley.com/datasets/zr7vgbcyr2/1
-  - Clinical photographs collected by the Dermatological and Surgical Assistance Program at the Federal University of Espírito Santo. Six diagnoses: melanoma (MEL), nevus (NEV), basal cell carcinoma (BCC), squamous cell carcinoma (SCC), actinic keratosis (ACK), and seborrheic keratosis (SEK). The paper states that the cancers are biopsy-proven. The files used here are the JPEGs prepared from that release, including the Hugging Face mirror (https://huggingface.co/datasets/SalmaneExploring/pad-ufes-20), which carries the same CC BY 4.0 license.
-- `fluo` (96 suspicious images added to training only, CC BY 4.0): https://doi.org/10.17632/s8n68jj678.1
-  - White-light clinical photographs from FLUO-SC: 18 melanoma and 78 squamous-cell images, labeled Suspicious. The release names the squamous-cell folder CCE. Fluorescence images were not used.
-- `hiba` (223 suspicious images added to training only, CC BY): https://doi.org/10.34970/587329
-  - Clinical photographs from Hospital Italiano de Buenos Aires: 57 melanoma, 46 squamous cell, 103 basal cell, and 17 actinic keratosis, labeled Suspicious. Dermoscopic photographs were not used.
+- `pad_ufes` (2,298 images, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)): https://data.mendeley.com/datasets/zr7vgbcyr2/1
+  - Mendeley Data lists this dataset under CC BY 4.0, which allows commercial use with attribution. Clinical photographs collected by the Dermatological and Surgical Assistance Program at the Federal University of Espírito Santo. Six diagnoses: melanoma (MEL), nevus (NEV), basal cell carcinoma (BCC), squamous cell carcinoma (SCC), actinic keratosis (ACK), and seborrheic keratosis (SEK). The paper states that the cancers are biopsy-proven. The Mendeley release is 7 July 2020. The related Data in Brief article is August 2020, also CC BY 4.0. The files used here are the JPEGs prepared from that release, including the Hugging Face mirror (https://huggingface.co/datasets/SalmaneExploring/pad-ufes-20), which carries the same CC BY 4.0 license.
+- `fluo` (96 suspicious images added to training only, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)): https://data.mendeley.com/datasets/s8n68jj678/1
+  - Mendeley Data lists this dataset under CC BY 4.0, which allows commercial use with attribution. White-light clinical photographs from FLUO-SC: 18 melanoma and 78 squamous cell images, labeled Suspicious. The release is "FLUO-SC: a fluorescence image dataset of skin lesions collected from smartphones," published 20 December 2024. The release names the squamous cell folder CCE. Fluorescence images were not used.
+- `hiba` (223 suspicious images added to training only, [CC BY](https://creativecommons.org/licenses/by/4.0/)): https://doi.org/10.34970/587329
+  - The ISIC Archive lists these image records under CC BY, which allows commercial use with attribution to Hospital Italiano de Buenos Aires. Clinical photographs from the collection "Hospital Italiano de Buenos Aires - Skin Lesions Images (2019-2022)." The counts kept are 57 melanoma, 46 squamous cell, 103 basal cell, and 17 actinic keratosis, labeled Suspicious. Dermoscopic photographs were not used.
 
 ## Adding More Data
 
 You can add more data to the project following the steps below to improve classification or to include new classes.
 
-1. Use `Image Classification Data Collection Graph UX` template to collect and label new data.
+1. Use the `Image Classification Data Collection Graph UX` template to collect and label new data.
 2. Import data to your project and retrain to get an updated model.
 
 You can also import data from any other source (for example, your own images or another dataset) as long as it follows the DEEPCRAFT™ Studio image-classification format: one JPG and a `LabelXml` class name, with no bounding box. Label an image `Suspicious`, `Benign`, or `Normal_Skin`. Put a lesion under the matching issue folder, for example `Data/Suspicious/Melanoma/`, and put a frame with no lesion in `Data/Normal_Skin/`. Put every image of a new person into one split.
@@ -120,10 +117,10 @@ The recommended path to production for this project includes the following steps
 
 - **Collect normal skin from the deployment camera and add it to the project.** A model that only knows Suspicious and Benign has to choose one of those two labels for every frame, so bare skin is often called Suspicious. Keep **Normal_Skin** as its own label for a frame with no lesion. Record that view on the camera of the target board, such as PSOC™ Edge: face, nose, ear, neck, chest, back, abdomen, arm, forearm, hand, thigh, and foot, across skin tones, lighting, and distance. Include frames that the current model calls Suspicious. Keep every photo of one person in one split. A few hundred images from different people, on the order of 300 to 500, are a useful first set. The Normal_Skin crops already here are clear skin cut from the lesion photos. They give the label a starting set, and photos from the board camera are what make the label hold on the device.
 - **Add more data if classification on your camera is weak.** Performance can drop when the deployment camera differs from the training images (angle, distance, lighting, or resolution). Collect and label images from the camera on the target board, such as PSOC™ Edge, and retrain until suspicious lesions, benign lesions, and normal skin are separated reliably in that setup.
-- **Differentiate the specific issues when you have enough examples.** `SkinLesionClassification.improj` outputs `Suspicious`, `Benign`, and `Normal_Skin`. The folders already separate melanoma, basal cell carcinoma, squamous cell carcinoma, actinic keratosis, nevus, and seborrheic keratosis, so a later model can name those issues. That needs more data. Melanoma has 127 images in this project and 10 in the unseen test set. Squamous cell carcinoma has 316. Basal cell carcinoma has 948 and actinic keratosis has 747. Nevus has 244 and seborrheic keratosis has 235. Melanoma and squamous cell carcinoma are too small for a stable six-way decision on new patients. More views of the images already here do not replace new patients.
+- **Train a model that names each issue.** The current labels group four Suspicious issues and two Benign issues. A later model can use one class per issue, six classes in total: `Melanoma`, `Basal_Cell_Carcinoma`, `Squamous_Cell_Carcinoma`, `Actinic_Keratosis`, `Nevus`, and `Seborrheic_Keratosis`. Each issue already has its own folder under `Data/Suspicious/` or `Data/Benign/`. Change the label on those images from `Suspicious` or `Benign` to the issue name, then import the sessions again in DEEPCRAFT™ Studio. The current counts are melanoma 127, with 10 in the unseen test set, squamous cell carcinoma 316, basal cell carcinoma 948, actinic keratosis 747, nevus 244, and seborrheic keratosis 235. Melanoma and squamous cell carcinoma need more photos from new patients before a six-class model holds on people the model has not seen. More copies of the images already here do not replace those new patients.
 - **Match the camera.** Train and test on the same kind of view the board will see. A wide view of a face, or a dermoscope image, is a different problem from one lesion filling the frame.
-- **Keep new patients out of the training split.** Several images often belong to one person.
-- **Prefer a suspicious call over a missed suspicious lesion.** Missing a lesion that should be seen is the costly error. A benign lesion called suspicious is the accepted false alarm for this grouping.
+- **Keep new patients out of the training split.** Several photos often belong to one person. Put every photo of that person into the same split: training, validation, or test. A new photo of someone already used in training belongs with that person's other photos in training. Validation and test then stay people the model has not seen, which is how this project measures the grouping on a new patient.
+- **Improve Suspicious detection to minimize false negatives.** The current model detects about 80% of Suspicious images. About 20% are missed and called Benign. A missed Suspicious image is the costly error, so a benign lesion called Suspicious is the accepted false alarm for this grouping. The misses come mostly from too little Suspicious data. Add more Suspicious photos from new patients, especially melanoma and squamous cell carcinoma, the two smallest Suspicious groups (127 and 316 images). Take them with the deployment camera, in the same close-up of one spot, across the body regions, skin tones, lighting, and distances the board will see. Include lesions the current model calls Benign. Keep every photo of one person in one split. More copies of the images already here do not replace those new patients.
 
 Some points to highlight:
 
@@ -134,40 +131,46 @@ Some points to highlight:
 ## Attributions & Citations
 
 ```bibtex
-@misc{pad_ufes_20,
-title = { PAD-UFES-20: a skin lesion dataset composed of patient data and clinical images collected from smartphones },
-type = { Open Source Dataset },
-author = { Pacheco, Andre G. C. and others },
-howpublished = { \url{ https://doi.org/10.17632/zr7vgbcyr2.1 } },
-url = { https://data.mendeley.com/datasets/zr7vgbcyr2/1 },
-journal = { Data in Brief },
-publisher = { Mendeley Data },
-year = { 2020 },
-month = { aug },
-  note = { visited on 2026-10-13 },
-}
-```
-
-```bibtex
-@misc{fluo_sc,
-  title = { FLUO-SC },
+@misc{ pad_ufes_20_dataset,
+  title = { PAD-UFES-20: a skin lesion dataset composed of patient data and clinical images collected from smartphones },
   type = { Open Source Dataset },
-  howpublished = { \url{ https://doi.org/10.17632/s8n68jj678.1 } },
-  url = { https://doi.org/10.17632/s8n68jj678.1 },
-  publisher = { Mendeley Data },
-  note = { visited on 2026-10-13 },
+  author = { Pacheco, Andre G. C. and others },
+  howpublished = { \url{ https://data.mendeley.com/datasets/zr7vgbcyr2/1 } },
+  url = { https://data.mendeley.com/datasets/zr7vgbcyr2/1 },
+  journal = { Mendeley Data },
+  publisher = { Mendeley },
+  year = { 2020 },
+  month = { jul },
+  note = { visited on 2026-10-28 },
 }
 ```
 
 ```bibtex
-@misc{hiba_clinical,
-  title = { Hospital Italiano de Buenos Aires clinical skin lesion images },
+@misc{ fluo_sc_dataset,
+  title = { FLUO-SC: a fluorescence image dataset of skin lesions collected from smartphones },
+  type = { Open Source Dataset },
+  author = { Becali Rocha, Matheus and others },
+  howpublished = { \url{ https://data.mendeley.com/datasets/s8n68jj678/1 } },
+  url = { https://data.mendeley.com/datasets/s8n68jj678/1 },
+  journal = { Mendeley Data },
+  publisher = { Mendeley },
+  year = { 2024 },
+  month = { dec },
+  note = { visited on 2026-10-28 },
+}
+```
+
+```bibtex
+@misc{ hiba_skin_lesions_dataset,
+  title = { Hospital Italiano de Buenos Aires - Skin Lesions Images (2019-2022) },
   type = { Open Source Dataset },
   author = { Hospital Italiano de Buenos Aires },
   howpublished = { \url{ https://doi.org/10.34970/587329 } },
   url = { https://doi.org/10.34970/587329 },
-  year = { 2022 },
-  note = { visited on 2026-10-13 },
+  journal = { ISIC Archive },
+  publisher = { ISIC },
+  year = { 2023 },
+  note = { visited on 2026-10-28 },
 }
 ```
 
